@@ -1,2 +1,2 @@
 # leetcode
-leetcode learn
+https://leetcode-cn.com/problemset/all/
