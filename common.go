@@ -27,7 +27,7 @@ func max(x, y int) int {
 
 func generateDp(row, col int) [][]int {
 	dp := make([][]int, row)
-	for i, _ := range dp {
+	for i := range dp {
 		dp[i] = make([]int, col)
 	}
 	return dp
@@ -35,7 +35,7 @@ func generateDp(row, col int) [][]int {
 
 func generateBoolDp(row, col int) [][]bool {
 	dp := make([][]bool, row)
-	for i, _ := range dp {
+	for i := range dp {
 		dp[i] = make([]bool, col)
 	}
 	return dp
