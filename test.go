@@ -1,10 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func main() {
-	r := gen3Dp(2, 3, 4)
+	r := rand.Intn(2)
 	fmt.Println(r)
+
+	r1 := rand.New()
+
 }
 
 func gen3Dp(x, y, z int) [][][]int {

@@ -2,16 +2,81 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"sort"
 )
 
 func main() {
-	nums := []int{1, 1}
-	r := findErrorNumsN(nums)
+	nums := []int{1, 1, 1, 2, 3, 3, 3}
+	o := Constructor(nums)
+	r := o.Pick(1)
 	fmt.Println(r)
 }
 
 /********* XX ********/
+
+
+
+/********* 如何在无限序列中随机抽取元素 ********/
+// 382. Linked List Random Node
+// 382. 链表随机节点
+// 思路：水塘抽样算法
+// time O(N) space O(1)
+type List struct {
+	head *ListNode
+}
+
+func Constructor(head *ListNode) List {
+	return List{
+		head: head,
+	}
+}
+
+func (l *List) GetRandom() int {
+	var ans int
+	i := 0
+	p := l.head
+	for p != nil {
+		i++
+		// 生成 [0,i) 之间整数
+		// 该整数等于0的概率是 1/i
+		if rand.Intn(i) == 0 {
+			ans = p.Val
+		}
+		p = p.Next
+	}
+	return ans
+}
+
+// 398. Random Pick Index
+// 398. 随机数索引
+// 思路：水塘抽样算法
+// time O(N) space O(1)
+type Solution struct {
+	nums []int
+}
+
+func Constructor(nums []int) Solution {
+	return Solution{
+		nums: nums,
+	}
+}
+
+func (s *Solution) Pick(target int) int {
+	ans, count := -1, 0
+	for i, v := range s.nums {
+		if v != target {
+			continue
+		}
+		count++
+		// 生成 [0,count) 之间整数
+		// 该整数等于0的概率是 1/count
+		if rand.Intn(count) == 0 {
+			ans = i
+		}
+	}
+	return ans
+}
 
 /********* 如何同时寻找缺失和重复的元素 ********/
 // 645. Set Mismatch
@@ -139,7 +204,7 @@ func myPow(a, k int) int {
 /********* 如何高效寻找素数 ********/
 // 204. Count Primes
 // 204. 计数质数（找出 [2,n)范围的质数个数）
-// 思路：质数定义
+// 思路：埃拉托斯特尼筛法
 // time O(N*loglogN) space O(N)
 func countPrimes(n int) int {
 	if n <= 1 {
