@@ -1,4 +1,4 @@
-package main
+package parentheses
 
 // 1541. Minimum Insertions to Balance a Parentheses String
 // 1541. 平衡括号字符串的最少插入次数
