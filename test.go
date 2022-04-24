@@ -1,25 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-)
+import "fmt"
+import "leetcode/test/test"
 
 func main() {
-	r := rand.Intn(2)
+	r := test.gen3Dp(2, 3, 4)
+	test.
 	fmt.Println(r)
-
-	r1 := rand.New()
-
-}
-
-func gen3Dp(x, y, z int) [][][]int {
-	dp := make([][][]int, x)
-	for i := range dp {
-		dp[i] = make([][]int, y)
-		for j := range dp[i] {
-			dp[i][j] = make([]int, z)
-		}
-	}
-	return dp
 }
