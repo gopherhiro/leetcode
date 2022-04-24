@@ -13,13 +13,67 @@ func main() {
 	head2 := createListFromTail(nums2)
 	printLinkedList(head2)
 
-	head := mergeTwoLists(head1, head2)
+	lists := []*ListNode{
+		head1,
+		head2,
+	}
+	head := mergeKLists(lists)
 	printLinkedList(head)
 }
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+// 23. Merge k Sorted Lists
+// 23. 合并K个升序链表
+// 策略：合并两个升序链表
+// 思路：连续合并链表
+// time O(KN)（N 是链表总节点数，K 是链表条数）
+func mergeKListsA(lists []*ListNode) *ListNode {
+	k := len(lists)
+	if k == 0 {
+		return nil
+	}
+	ans := lists[0]
+	for i := 1; i < k; i++ {
+		ans = mergeTwoLists(ans, lists[i])
+	}
+	return ans
+}
+
+// 23. Merge k Sorted Lists
+// 23. 合并K个升序链表
+// 策略：最小堆
+// 思路：把链表节点放入一个最小堆，就可以每次获得 k 个节点中的最小节点。
+// time O(N*logK)（N 是链表节点数，K 是链表条数）
+func mergeKLists(lists []*ListNode) *ListNode {
+	k := len(lists)
+	if k == 0 {
+		return nil
+	}
+	// 把 k 个链表头节点，放入最小堆
+	h := new(minHeap)
+	for _, head := range lists {
+		if head != nil {
+			heap.Push(h, head)
+		}
+	}
+
+	dummy := new(ListNode)
+	p := dummy
+	for h.Len() > 0 {
+		// 获取最小堆中的顶点，接到结果链中
+		// 将当前节点的下一个节点，放入最小堆
+		node := heap.Pop(h).(*ListNode)
+		p.Next = node
+		if node.Next != nil {
+			heap.Push(h, node.Next)
+		}
+		p = p.Next
+	}
+	return dummy.Next
 }
 
 // An minHeap is a min-heap of *ListNode
@@ -41,42 +95,6 @@ func (h *minHeap) Pop() interface{} {
 	x := old[n-1]
 	*h = old[0 : n-1]
 	return x
-}
-
-// 23. Merge k Sorted Lists
-// 23. 合并K个升序链表
-// 策略：最小堆
-// 思路：把链表节点放入一个最小堆，就可以每次获得 k 个节点中的最小节点。
-// time O(N*logK)（N 是链表节点数，K 是链表条数）
-func mergeKLists(lists []*ListNode) *ListNode {
-	k := len(lists)
-	if k == 0 {
-		return nil
-	}
-	// 把 k 个链表头节点，放入最小堆
-	h := new(minHeap)
-	for _, head := range lists {
-		if head != nil {
-			heap.Push(h, head)
-		}
-	}
-
-	// 虚拟头节点
-	dummy := new(ListNode)
-	p := dummy
-	for h.Len() > 0 {
-		// 关于小顶堆的维护，交给heap
-		// 获取最小节点，接到结果链中
-		node := h.Pop().(*ListNode)
-		p.Next = node
-		// 将当前节点的下一个节点，放入最小堆
-		if node.Next != nil {
-			heap.Push(h, node.Next)
-		}
-		// 继续后续链接
-		p = p.Next
-	}
-	return dummy.Next
 }
 
 // 21. Merge Two Sorted Lists

@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="244a407d-217f-4c96-a5af-ddd298a8379e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/weeklycontest/20220424.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contest.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/greedy.go" beforeDir="false" afterPath="$PROJECT_DIR$/greedy.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linkedlist.go" beforeDir="false" afterPath="$PROJECT_DIR$/linkedlist.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp1.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp10.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp10.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp11.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp11.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp12.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp12.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp13.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp13.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp15.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp15.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp2.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp2.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp3.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp4.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp4.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp5.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp5.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp6.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp6.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp7.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp7.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp8.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp8.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dp9.go" beforeDir="false" afterPath="$PROJECT_DIR$/dp/dp9.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linkedlist.go" beforeDir="false" afterPath="$PROJECT_DIR$/linkedlist/linkedlist.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +58,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dp" />
+      <recent name="$PROJECT_DIR$/linkedlist" />
       <recent name="$PROJECT_DIR$/WeeklyContest" />
     </key>
   </component>
