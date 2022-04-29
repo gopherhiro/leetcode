@@ -5,6 +5,24 @@ import (
 	"testing"
 )
 
+func TestSwapPairs(t *testing.T) {
+	num := []int{1, 2, 3, 4, 5}
+	h1 := pkg.CreateListFromTail(num)
+	pkg.PrintLinkedList(h1)
+
+	h2 := swapPairsK(h1)
+	pkg.PrintLinkedList(h2)
+}
+
+func TestRSwapPairsR(t *testing.T) {
+	num := []int{1, 2, 3, 4, 5}
+	h1 := pkg.CreateListFromTail(num)
+	pkg.PrintLinkedList(h1)
+
+	h2 := swapPairsR(h1)
+	pkg.PrintLinkedList(h2)
+}
+
 func TestReverseList(t *testing.T) {
 	num := []int{1, 2, 3, 4, 5}
 	h1 := pkg.CreateListFromTail(num)
