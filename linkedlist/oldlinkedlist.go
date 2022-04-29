@@ -1,58 +1,11 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
-	elems := []int{3, 2, 2, 1, 1}
-	head := createList(elems)
-	printLinkedList(head)
-
-	h1 := deleteDuplicatesIIRecursion(head)
-	printLinkedList(h1)
 }
-
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
-}
-
-func createLinkedList(len int) *ListNode {
-	var prev, curr *ListNode
-	for i := 1; i <= len; i++ {
-		node := &ListNode{}
-		node.Val = i
-		node.Next = prev
-		curr = node
-
-		curr.Next = prev
-		prev = curr
-	}
-	return curr
-}
-
-func createList(elms []int) *ListNode {
-	var prev, curr *ListNode
-	for _, value := range elms {
-		node := &ListNode{}
-		node.Val = value
-		node.Next = prev
-		curr = node
-
-		curr.Next = prev
-		prev = curr
-	}
-	return curr
-}
-
-func printLinkedList(head *ListNode) {
-	for head != nil {
-		fmt.Printf("%d ", head.Val)
-		head = head.Next
-	}
-	fmt.Println()
 }
 
 func reverseList1(head *ListNode) *ListNode {
