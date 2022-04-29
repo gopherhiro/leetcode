@@ -1,58 +1,10 @@
-package main
+package linkedlist
 
-func main() {
-}
+import "leetcode/pkg"
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+var breaker *pkg.ListNode
 
-func reverseList1(head *ListNode) *ListNode {
-	if head == nil {
-		return nil
-	}
-	var headn, cur *ListNode
-	for head != nil {
-		cur = head
-		head = head.Next
-		cur.Next = headn
-		headn = cur
-	}
-
-	return headn
-}
-
-func reverseList2(head *ListNode) *ListNode {
-	if head == nil {
-		return nil
-	}
-	var prev *ListNode
-
-	curr := head
-	for curr != nil {
-		next := curr.Next
-		curr.Next = prev
-		prev = curr
-		curr = next
-	}
-
-	return prev
-}
-
-func reverseList(head *ListNode) *ListNode {
-	if head == nil || head.Next == nil {
-		return head
-	}
-	newHead := reverseList(head.Next)
-	head.Next.Next = head
-	head.Next = nil
-	return newHead
-}
-
-var breaker *ListNode
-
-func reverseListN(head *ListNode, n int) *ListNode {
+func reverseListN(head *pkg.ListNode, n int) *pkg.ListNode {
 	if n == 1 {
 		breaker = head.Next
 		return head
@@ -65,7 +17,7 @@ func reverseListN(head *ListNode, n int) *ListNode {
 	return last
 }
 
-func reverseBetween(head *ListNode, m, n int) *ListNode {
+func reverseBetween(head *pkg.ListNode, m, n int) *pkg.ListNode {
 	if m == 1 {
 		return reverseListN(head, n)
 	}
@@ -73,8 +25,8 @@ func reverseBetween(head *ListNode, m, n int) *ListNode {
 	return head
 }
 
-func reverseMN(head *ListNode, left, right int) *ListNode {
-	dummyHead := &ListNode{}
+func reverseMN(head *pkg.ListNode, left, right int) *pkg.ListNode {
+	dummyHead := &pkg.ListNode{}
 	dummyHead.Next = head
 
 	pre := dummyHead
@@ -94,7 +46,7 @@ func reverseMN(head *ListNode, left, right int) *ListNode {
 	return dummyHead.Next
 }
 
-func reverseKGroup(head *ListNode, k int) *ListNode {
+func reverseKGroup(head *pkg.ListNode, k int) *pkg.ListNode {
 	if head == nil {
 		return nil
 	}
@@ -118,8 +70,8 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 }
 
 // 反转以a为头节点的链表
-func reverseANull(a *ListNode) *ListNode {
-	var pre *ListNode
+func reverseANull(a *pkg.ListNode) *pkg.ListNode {
+	var pre *pkg.ListNode
 	cur := a
 	// 遍历到链表尾
 	for cur != nil {
@@ -137,8 +89,8 @@ func reverseANull(a *ListNode) *ListNode {
 }
 
 // 反转区间节点[a,b)的链表元素，注意左闭右开。
-func reverseAB(a, b *ListNode) *ListNode {
-	var pre *ListNode
+func reverseAB(a, b *pkg.ListNode) *pkg.ListNode {
+	var pre *pkg.ListNode
 	cur := a
 	// 遍历到指定的节点即可
 	for cur != b {
@@ -153,7 +105,7 @@ func reverseAB(a, b *ListNode) *ListNode {
 	return pre
 }
 
-func isPalindrome(head *ListNode) bool {
+func isPalindrome(head *pkg.ListNode) bool {
 	// 先通过“双指针技巧”中的快、慢指针来找到链表的中点。
 	// 找中点要注意区分奇偶情况。如果fast指针没有指向null，说明链表长度为奇数，slow指针还需要再前进一步。
 	slow, fast := head, head
@@ -180,7 +132,7 @@ func isPalindrome(head *ListNode) bool {
 	return true
 }
 
-func middleNode(head *ListNode) *ListNode {
+func middleNode(head *pkg.ListNode) *pkg.ListNode {
 	slow, fast := head, head
 	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next
@@ -189,7 +141,7 @@ func middleNode(head *ListNode) *ListNode {
 	return slow
 }
 
-func middleNodeAgain(head *ListNode) *ListNode {
+func middleNodeAgain(head *pkg.ListNode) *pkg.ListNode {
 	var n int
 	cur := head
 	for cur != nil {
@@ -210,11 +162,11 @@ func middleNodeAgain(head *ListNode) *ListNode {
 // 思路：遍历链表，查找删除即可。
 // 创建虚拟头节点，方便删除。
 // time O(N) space O(1)
-func removeElements(head *ListNode, val int) *ListNode {
+func removeElements(head *pkg.ListNode, val int) *pkg.ListNode {
 	if head == nil {
 		return nil
 	}
-	virHead := &ListNode{}
+	virHead := &pkg.ListNode{}
 	virHead.Next = head
 
 	pre := virHead
@@ -234,7 +186,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 }
 
 // 差值法
-func getIntersectionNode(headA, headB *ListNode) *ListNode {
+func getIntersectionNode(headA, headB *pkg.ListNode) *pkg.ListNode {
 	var lenA, lenB int
 
 	curA := headA
@@ -277,8 +229,8 @@ func abs(a, b int) int {
 }
 
 // 哈希法
-func intersectionNode(headA, headB *ListNode) *ListNode {
-	hash := make(map[*ListNode]bool)
+func intersectionNode(headA, headB *pkg.ListNode) *pkg.ListNode {
+	hash := make(map[*pkg.ListNode]bool)
 	for node := headA; node != nil; node = node.Next {
 		hash[node] = true
 	}
@@ -291,7 +243,7 @@ func intersectionNode(headA, headB *ListNode) *ListNode {
 }
 
 // 双指针法
-func intersectionNodeN(headA, headB *ListNode) *ListNode {
+func intersectionNodeN(headA, headB *pkg.ListNode) *pkg.ListNode {
 	pa := headA
 	pb := headB
 
@@ -312,7 +264,7 @@ func intersectionNodeN(headA, headB *ListNode) *ListNode {
 	return pa
 }
 
-func kthToLast(head *ListNode, k int) int {
+func kthToLast(head *pkg.ListNode, k int) int {
 	slow := head
 	fast := head
 
@@ -328,7 +280,7 @@ func kthToLast(head *ListNode, k int) int {
 	return slow.Val
 }
 
-func hasCycle(head *ListNode) bool {
+func hasCycle(head *pkg.ListNode) bool {
 	slow, fast := head, head
 	for fast != nil && fast.Next != nil {
 		slow = slow.Next
@@ -340,7 +292,7 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 
-func deleteDuplicates(head *ListNode) *ListNode {
+func deleteDuplicates(head *pkg.ListNode) *pkg.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
@@ -355,7 +307,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 
-func deleteDuplicatesRecursion(head *ListNode) *ListNode {
+func deleteDuplicatesRecursion(head *pkg.ListNode) *pkg.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
@@ -366,11 +318,11 @@ func deleteDuplicatesRecursion(head *ListNode) *ListNode {
 	return head
 }
 
-func deleteDuplicatesII(head *ListNode) *ListNode {
+func deleteDuplicatesII(head *pkg.ListNode) *pkg.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	dummy := &ListNode{}
+	dummy := &pkg.ListNode{}
 	dummy.Next = head
 
 	pre, cur := dummy, head
@@ -395,7 +347,7 @@ func deleteDuplicatesII(head *ListNode) *ListNode {
 	return dummy.Next
 }
 
-func deleteDuplicatesIIRecursion(head *ListNode) *ListNode {
+func deleteDuplicatesIIRecursion(head *pkg.ListNode) *pkg.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}

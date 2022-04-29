@@ -1,14 +1,6 @@
-package main
+package linkedlist
 
 import "leetcode/pkg"
-
-func main() {
-	nums := []int{1, 2, 3, 4, 5}
-	h := pkg.CreateListFromTail(nums)
-	pkg.PrintLinkedList(h)
-	head := removeNthFromEnd(h, 2)
-	pkg.PrintLinkedList(head)
-}
 
 // 19. Remove Nth ListNode From End of List
 // 19. 删除链表的倒数第 N 个结点

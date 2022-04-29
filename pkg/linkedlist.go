@@ -7,7 +7,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// 创建链表
+// CreateListFromTail 创建链表
 // 尾插法
 // time O(N) space O(1)
 func CreateListFromTail(nums []int) *ListNode {
@@ -25,7 +25,7 @@ func CreateListFromTail(nums []int) *ListNode {
 	return dummyHead.Next
 }
 
-// 创建链表
+// CreateListFromTailN 创建链表
 // 尾插法
 // time O(N) space O(1)
 func CreateListFromTailN(nums []int) *ListNode {
