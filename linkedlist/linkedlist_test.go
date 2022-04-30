@@ -5,6 +5,15 @@ import (
 	"testing"
 )
 
+func TestRemoveElements(t *testing.T) {
+	num1 := []int{1, 2, 3, 4, 5}
+	h1 := pkg.CreateListFromTail(num1)
+	pkg.PrintLinkedList(h1)
+
+	h2 := removeElements(h1, 2)
+	pkg.PrintLinkedList(h2)
+}
+
 func TestGetIntersectionNode(t *testing.T) {
 	num1 := []int{1, 2, 3, 4, 5}
 	h1 := pkg.CreateListFromTail(num1)

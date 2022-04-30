@@ -158,34 +158,6 @@ func middleNodeAgain(head *pkg.ListNode) *pkg.ListNode {
 	return cur
 }
 
-// 203. 移除链表元素
-// 思路：遍历链表，查找删除即可。
-// 创建虚拟头节点，方便删除。
-// time O(N) space O(1)
-func removeElements(head *pkg.ListNode, val int) *pkg.ListNode {
-	if head == nil {
-		return nil
-	}
-	virHead := &pkg.ListNode{}
-	virHead.Next = head
-
-	pre := virHead
-	// 循环迭代条件：前驱节点的下一个节点不为空，则进入循环。
-	// 为空，则结束循环。
-	for pre.Next != nil {
-		// 前驱节点的下一个节点值，等于指定值，则删除。
-		if pre.Next.Val == val {
-			pre.Next = pre.Next.Next
-		} else {
-			// 否则，移动到下一个元素继续判断。
-			pre = pre.Next
-		}
-	}
-
-	return virHead.Next
-}
-
-
 func kthToLast(head *pkg.ListNode, k int) int {
 	slow := head
 	fast := head
