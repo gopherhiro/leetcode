@@ -14,6 +14,13 @@ func Min(x, y int) int {
 	return y
 }
 
+func Abs(x, y int) int {
+	if x > y {
+		return x - y
+	}
+	return y - x
+}
+
 func GenerateMemo2D(row, col, initVal int) [][]int {
 	memo := make([][]int, row)
 	for i := range memo {
