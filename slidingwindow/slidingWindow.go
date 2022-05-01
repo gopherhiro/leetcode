@@ -136,7 +136,7 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 			// 让 left 一直移至没有重复元素为止。
 			if window[c] <= 1 {
 				// 此时的坐标才是正确的
-				// 计算坐标绝对值 & 与 k 比较
+				// 计算坐标绝对值 && 与 k 比较
 				if abs(left-1, right-1) <= k {
 					return true
 				}
