@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"leetcode/pkg"
 	"regexp"
 	"strconv"
 	"strings"
@@ -427,7 +428,7 @@ func reverseStr(s string, k int) string {
 		// right = i+k-1，表示右边界范围
 		// right 与 len(t) - 1 取 min，
 		// 可保证不足 k 个时，将剩余字符全部反转。
-		left, right := i, min(i+k-1, len(t)-1)
+		left, right := i, pkg.Min(i+k-1, len(t)-1)
 		for left < right {
 			t[left], t[right] = t[right], t[left]
 			left++
@@ -436,13 +437,6 @@ func reverseStr(s string, k int) string {
 	}
 
 	return string(t)
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }
 
 // Reverse Kth String

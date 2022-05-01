@@ -17,12 +17,7 @@ func main() {
 // 28. Implement strStr()
 // 28. 实现 strStr()
 func strStr(haystack string, needle string) int {
-	if len(haystack) == 0 || len(needle) == 0 {
-		return 0
-	}
-	if len(haystack) < len(needle) {
-		return -1
-	}
+	return 0
 }
 
 // 67. Add Binary
