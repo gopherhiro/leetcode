@@ -55,11 +55,3 @@ func change(amount int, coins []int) int {
 	}
 	return dp[n][amount]
 }
-
-func generateDp(row, col int) [][]int {
-	dp := make([][]int, row)
-	for i, _ := range dp {
-		dp[i] = make([]int, col)
-	}
-	return dp
-}

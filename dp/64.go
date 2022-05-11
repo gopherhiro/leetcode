@@ -13,7 +13,7 @@ func minPathSumM(grid [][]int) int {
 	}
 	m, n := len(grid), len(grid[0])
 
-	memo := generateMemo(m, n, -1)
+	memo := genmemo(m, n, -1)
 
 	var dp func(i, j int) int
 	dp = func(i, j int) int {
@@ -42,7 +42,7 @@ func minPathSumM(grid [][]int) int {
 	return dp(m-1, n-1)
 }
 
-func generateMemo(m, n, initVal int) [][]int {
+func genmemo(m, n, initVal int) [][]int {
 	memo := make([][]int, m)
 	for i, _ := range memo {
 		memo[i] = make([]int, n)

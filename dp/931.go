@@ -59,7 +59,7 @@ func minFallingPathSumM(matrix [][]int) int {
 		return 0
 	}
 
-	memo := generateMemo(n, n, math.MinInt32)
+	memo := genmemo(n, n, math.MinInt32)
 
 	var dp func(i, j int) int
 	dp = func(i, j int) int {

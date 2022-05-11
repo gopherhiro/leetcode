@@ -12,7 +12,7 @@ func longestPalindromeSubseqM(s string) int {
 	}
 
 	// 备忘录
-	memo := generateMemo(n, n, -1)
+	memo := genmemo(n, n, -1)
 
 	var dp func(i, j int) int
 	dp = func(i, j int) int {

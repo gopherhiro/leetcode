@@ -1,5 +1,7 @@
 package dp
 
+import "fmt"
+
 // 651. 4 Keys Keyboard
 // 651. 4键键盘
 // 思路：dynamic programming

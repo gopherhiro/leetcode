@@ -37,7 +37,7 @@ func minInsertionsM(s string) int {
 		return 0 // 空串 or 一个字符，本身具有回文性，不需要插入
 	}
 
-	memo := generateMemo(n, n, -1)
+	memo := genmemo(n, n, -1)
 
 	var dp func(i, j int) int
 	dp = func(i, j int) int {

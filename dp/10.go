@@ -15,7 +15,7 @@ func isMatch(s string, p string) bool {
 		return true
 	}
 
-	dp := generateBoolDp(ms, np)
+	dp := genBoolDp(ms, np)
 
 	// base case
 	// 两者都为空，肯定是匹配成功的。
@@ -59,7 +59,7 @@ func isMatch(s string, p string) bool {
 	return dp[ms][np]
 }
 
-func generateBoolDp(m, n int) [][]bool {
+func genBoolDp(m, n int) [][]bool {
 	dp := make([][]bool, m+1)
 	for i, _ := range dp {
 		dp[i] = make([]bool, n+1)

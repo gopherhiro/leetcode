@@ -5,31 +5,14 @@ import "math"
 // 322. Coin Change
 // 322. 零钱兑换
 // 思路：迭代
-// time O(kN) space O(N)
-// 备注：暂时没理解全，先放着
-func coinChange(coins []int, amount int) int {
-	dp := make([]int, amount+1)
-	for k := 0; k < len(dp); k++ {
-		dp[k] = amount + 1
-	}
-	dp[0] = 0
-	for _, coin := range coins {
-		for i := coin; i <= amount; i++ {
-			dp[i] = min(dp[i], dp[i-coin]+1)
-		}
-	}
-	if dp[amount] > amount {
-		return -1
-	}
-	return dp[amount]
-}
-
-// 322. Coin Change
-// 322. 零钱兑换
-// 思路：迭代
+// dp 数组的定义：当目标金额为 i 时，至少需要 dp[i] 枚硬币凑出。
+// 则要求的目标为：dp[amount]
 // time O(kN) space O(N)
 func coinChangeL(coins []int, amount int) int {
 	dp := make([]int, amount+1)
+	// init dp 值为 amount + 1
+	// 凑成 amount 金额的硬币数最多只可能等于 amount，
+	// 所以初始化为 amount + 1 就相当于初始化为正无穷，便于后续取最小值。
 	for k := 0; k < len(dp); k++ {
 		dp[k] = amount + 1
 	}
@@ -44,7 +27,8 @@ func coinChangeL(coins []int, amount int) int {
 			dp[i] = min(dp[i], dp[i-coin]+1)
 		}
 	}
-	if dp[amount] > amount {
+	// 根据 dp 数组的定义，要求的目标为 dp[amount]
+	if dp[amount] == amount+1 {
 		return -1
 	}
 	return dp[amount]
@@ -62,21 +46,19 @@ func coinChangeM(coins []int, amount int) int {
 		return 0
 	}
 
-	const NoSolution = -1
 	memo := make(map[int]int, 0)
 	var helper func(amount int) int
 	helper = func(amount int) int {
 		// base case
 		if amount < 0 {
-			return NoSolution
+			return -1
 		}
 		if amount == 0 {
 			return 0
 		}
-		// 先查询备忘录，不存在再计算。
 		// 备忘录有，则直接返回。
-		if _, ok := memo[amount]; ok {
-			return memo[amount]
+		if count, ok := memo[amount]; ok {
+			return count
 		}
 
 		// 遍历所有可能的状态选择，求最小值
@@ -84,16 +66,18 @@ func coinChangeM(coins []int, amount int) int {
 		for _, coin := range coins {
 			subCount := helper(amount - coin)
 			// 跳过无解子问题
-			if subCount == NoSolution {
+			if subCount == -1 {
 				continue
 			}
 			minCount = min(minCount, subCount+1)
 		}
-		// [最少的硬币个数]存储到备忘录中
-		memo[amount] = minCount
+		// 存储到备忘录中
 		if minCount == math.MaxInt32 {
-			memo[amount] = NoSolution
+			memo[amount] = -1
+		} else {
+			memo[amount] = minCount
 		}
+
 		return memo[amount]
 	}
 
@@ -103,27 +87,41 @@ func coinChangeM(coins []int, amount int) int {
 // 322. Coin Change
 // 322. 零钱兑换
 // 思路：暴力递归（超时）
-// time O(k*3^N) space O(3^N)
+// dp函数定义：要凑出金额 amount，至少要 dp(amount) 个硬币
+// time O(k^N) space O(k^N)
 func coinChangeR(coins []int, amount int) int {
-	// base case
 	if amount < 0 {
 		return -1
 	}
 	if amount == 0 {
 		return 0
 	}
-	// 遍历所有可能的状态选择，求最小值
-	minCount := math.MaxInt32
-	for _, coin := range coins {
-		subCount := coinChangeR(coins, amount-coin)
-		// 跳过无解子问题
-		if subCount == -1 {
-			continue
+	var dp func(amount int) int
+	dp = func(amount int) int {
+		// base case
+		if amount < 0 {
+			return -1
 		}
-		minCount = min(minCount, subCount+1)
+		if amount == 0 {
+			return 0
+		}
+		// 遍历所有可能的状态选择，求最小值
+		minCount := math.MaxInt32
+		for _, coin := range coins {
+			// 计算子问题的结果
+			subCount := dp(amount - coin)
+			// 跳过无解子问题
+			if subCount == -1 {
+				continue
+			}
+			// 子问题结果 +1，择优
+			minCount = min(minCount, subCount+1)
+		}
+		if minCount == math.MaxInt32 {
+			return -1
+		}
+		return minCount
 	}
-	if minCount == math.MaxInt32 {
-		return -1
-	}
-	return minCount
+	// 要求的结果是：dp(amount)
+	return dp(amount)
 }

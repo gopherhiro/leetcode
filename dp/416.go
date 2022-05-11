@@ -1,5 +1,7 @@
 package dp
 
+import "fmt"
+
 // 416. Partition Equal Subset Sum
 // 416. 分割等和子集
 // 思路：dynamic programming

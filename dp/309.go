@@ -1,5 +1,7 @@
 package dp
 
+import "math"
+
 // 309. Best Time to Buy and Sell Stock with cool down
 // 309. 最佳买卖股票时机含冷冻期
 // 思路：dynamic programming compress state
