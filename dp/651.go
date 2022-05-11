@@ -1,12 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	n := 7
-	r := maxAM(n)
-	fmt.Println(r)
-}
+package dp
 
 // 651. 4 Keys Keyboard
 // 651. 4键键盘

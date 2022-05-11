@@ -1,14 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	nums := []int{1, 2, 5}
-	r := changeD(5, nums)
-	fmt.Println(r)
-}
-
-// 有必要学习一下状态压缩，效率可以提示不少呀！！！
+package dp
 
 // 518. Coin Change 2
 // 518. 零钱兑换 II

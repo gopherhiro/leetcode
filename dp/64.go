@@ -1,19 +1,6 @@
-package main
+package dp
 
-import (
-	"fmt"
-	"math"
-)
-
-func main() {
-	grid := [][]int{
-		{1, 3, 1},
-		{1, 5, 1},
-		{4, 2, 1},
-	}
-	r := minPathSumM(grid)
-	fmt.Println(r)
-}
+import "math"
 
 // 64. Minimum Path Sum
 // 64. 最小路径和
@@ -130,19 +117,4 @@ func minPathSum(grid [][]int) int {
 		}
 	}
 	return dp[m-1][n-1]
-}
-
-func generateDp(m, n int) [][]int {
-	dp := make([][]int, m)
-	for i, _ := range dp {
-		dp[i] = make([]int, n)
-	}
-	return dp
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }

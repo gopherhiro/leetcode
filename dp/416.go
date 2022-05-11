@@ -1,14 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	nums := []int{1, 2, 2, 1}
-	r := canPartitionM(nums)
-	fmt.Println(r)
-}
+package dp
 
 // 416. Partition Equal Subset Sum
 // 416. 分割等和子集

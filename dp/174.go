@@ -1,17 +1,6 @@
-package main
+package dp
 
-import (
-	"fmt"
-	"math"
-)
-
-func main() {
-	nums := [][]int{
-		{0, -3},
-	}
-	r := calculateMinimumHPM(nums)
-	fmt.Println(r)
-}
+import "math"
 
 // 174. 地下城游戏
 // 174. Dungeon Game
@@ -112,7 +101,7 @@ func min(x, y int) int {
 func calculateMinimumHPR(g [][]int) int {
 	m, n := len(g), len(g[0])
 
-	memo := generateMemo(m, n, -1)
+	memo := generateMemoA(m, n, -1)
 
 	/* 定义：从 (i, j) 到达右下角，所需最低初始健康点数是 dp(i,j) */
 	var dp func(i, j int) int
@@ -146,7 +135,7 @@ func calculateMinimumHPR(g [][]int) int {
 	return dp(0, 0)
 }
 
-func generateMemo(row, col, initVal int) [][]int {
+func generateMemoA(row, col, initVal int) [][]int {
 	memo := make([][]int, row)
 	for i := range memo {
 		memo[i] = make([]int, col)

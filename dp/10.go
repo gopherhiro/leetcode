@@ -1,13 +1,6 @@
-package main
+package dp
 
 import "fmt"
-
-func main() {
-	s := "abcd"
-	p := "a*"
-	r := isMatch(s, p)
-	fmt.Println(r)
-}
 
 // 10. Regular Expression Matching
 // 10. 正则表达式匹配

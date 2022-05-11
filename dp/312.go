@@ -1,15 +1,6 @@
-package main
+package dp
 
-import (
-	"fmt"
-	"math"
-)
-
-func main() {
-	nums := []int{2, 3}
-	r := maxCoins(nums)
-	fmt.Println(r)
-}
+import "math"
 
 // 312. Burst Balloons
 // 312. 戳气球
@@ -54,14 +45,6 @@ func maxCoins(nums []int) int {
 		}
 	}
 	return dp[0][n+1]
-}
-
-func generateDp(m, n int) [][]int {
-	dp := make([][]int, m)
-	for i, _ := range dp {
-		dp[i] = make([]int, n)
-	}
-	return dp
 }
 
 // 312. Burst Balloons
@@ -121,11 +104,4 @@ func insert(nums []int, i, elem int) []int {
 	last := nums[i:]
 	l := append([]int{elem}, last...)
 	return append(prev, l...)
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
 }

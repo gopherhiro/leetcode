@@ -1,15 +1,6 @@
-package main
+package dp
 
-import (
-	"fmt"
-	"math"
-)
-
-func main() {
-	k, n := 3, 14
-	r := superEggDrop(k, n)
-	fmt.Println(r)
-}
+import "math"
 
 // 887. Super Egg Drop
 // 887. 鸡蛋掉落
@@ -177,18 +168,4 @@ func superEggDropR(k int, n int) int {
 		return res
 	}
 	return dp(k, n)
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
 }

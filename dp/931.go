@@ -1,19 +1,6 @@
-package main
+package dp
 
-import (
-	"fmt"
-	"math"
-)
-
-func main() {
-	matrix := [][]int{
-		{2, 1, 3},
-		{6, 5, 4},
-		{7, 8, 9},
-	}
-	r := minFallingPathSum(matrix)
-	fmt.Println(r)
-}
+import "math"
 
 // 931. Minimum Falling Path Sum
 // 931. 下降路径最小和
@@ -61,14 +48,6 @@ func minFallingPathSum(matrix [][]int) int {
 	return minPathSum
 }
 
-func generateDp(m, n int) [][]int {
-	dp := make([][]int, m)
-	for i, _ := range dp {
-		dp[i] = make([]int, n)
-	}
-	return dp
-}
-
 // 931. Minimum Falling Path Sum
 // 931. 下降路径最小和
 // 思路：记忆化递归
@@ -111,17 +90,6 @@ func minFallingPathSumM(matrix [][]int) int {
 	return minPathSum
 }
 
-func generateMemo(m, n, initVal int) [][]int {
-	memo := make([][]int, m)
-	for i, _ := range memo {
-		memo[i] = make([]int, n)
-		for j, _ := range memo[i] {
-			memo[i][j] = initVal
-		}
-	}
-	return memo
-}
-
 // 931. Minimum Falling Path Sum
 // 931. 下降路径最小和
 // 思路：暴力递归
@@ -154,11 +122,4 @@ func minFallingPathSumR(matrix [][]int) int {
 		minPathSum = min(minPathSum, dp(n-1, j))
 	}
 	return minPathSum
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }
