@@ -9,7 +9,7 @@ package binarytree
 // until we met the first empty node.
 // For a complete binary tree,
 // there should not be any node after we met an empty one.
-// time O() space O()
+// time O(N) space O(N)
 func isCompleteTree(root *TreeNode) bool {
 	if root == nil {
 		return true
