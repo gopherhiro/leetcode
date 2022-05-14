@@ -1,153 +1,11 @@
-package main
+package binarytree
 
 import (
 	"fmt"
 	"math"
-	"math/rand"
 	"strconv"
 	"strings"
-	"time"
 )
-
-// random generator
-type RandGen struct {
-	src       rand.Source
-	cache     int64
-	remaining int
-}
-
-func (b *RandGen) Bool() bool {
-	if b.remaining == 0 {
-		b.cache, b.remaining = b.src.Int63(), 63
-	}
-
-	result := b.cache&0x01 == 1
-	b.cache >>= 1
-	b.remaining--
-
-	return result
-}
-
-func NewRand() *RandGen {
-	return &RandGen{src: rand.NewSource(time.Now().UnixNano())}
-}
-
-// Definition for a binary tree node.
-type TreeNode struct {
-	Left  *TreeNode
-	Val   int
-	Right *TreeNode
-	Next  *TreeNode
-}
-
-// New returns a new, random binary tree
-// holding the values 1k, 2k, ..., nk.
-func New(n, k int) *TreeNode {
-	var t *TreeNode
-	for _, v := range rand.Perm(n) {
-		t = insert(t, (1+v)*k)
-	}
-	return t
-}
-
-// insert a value into tree
-func insert(t *TreeNode, v int) *TreeNode {
-	if t == nil {
-		return &TreeNode{nil, v, nil, nil}
-	}
-	// 随机插入左右子树
-	r := NewRand()
-	if r.Bool() {
-		t.Left = insert(t.Left, v)
-		return t
-	}
-	t.Right = insert(t.Right, v)
-	return t
-}
-
-// preorder traverse tree
-func preorderTraverse(t *TreeNode) {
-	if t == nil {
-		return
-	}
-	// preorder position
-	fmt.Printf("%d ", t.Val)
-	preorderTraverse(t.Left)
-	preorderTraverse(t.Right)
-}
-
-// inorder traverse tree
-func inorderTraverse(t *TreeNode) {
-	if t == nil {
-		return
-	}
-	inorderTraverse(t.Left)
-	fmt.Printf("%d ", t.Val)
-	inorderTraverse(t.Right)
-}
-
-// post order traverse tree
-func posOrderTraverse(t *TreeNode) {
-	if t == nil {
-		return
-	}
-	posOrderTraverse(t.Left)
-	posOrderTraverse(t.Right)
-	fmt.Printf("%d ", t.Val)
-}
-
-func layerOrderTraverse(root *TreeNode) {
-	if root == nil {
-		return
-	}
-	queue := make([]*TreeNode, 0)
-	// 根节点入队
-	queue = append(queue, root)
-	for len(queue) > 0 {
-		// 已遍历节点出队
-		cur := queue[0]
-		queue = queue[1:]
-		fmt.Printf("%d ", cur.Val)
-
-		// 其左右子节点入队
-		if cur.Left != nil {
-			queue = append(queue, cur.Left)
-		}
-
-		if cur.Right != nil {
-			queue = append(queue, cur.Right)
-		}
-	}
-}
-
-// 输入一棵二叉树的根节点，层序遍历这棵二叉树
-func levelOrderTraversal(root *TreeNode) {
-	if root == nil {
-		return
-	}
-	queue := make([]*TreeNode, 0)
-	queue = append(queue, root)
-
-	// 从上到下遍历二叉树的每一层
-	for len(queue) > 0 {
-		// 从左到右遍历每一层的每个节点
-		levelSize := len(queue)
-		for i := 0; i < levelSize; i++ {
-			cur := queue[0]
-			queue = queue[1:]
-			fmt.Printf("%d ", cur.Val)
-
-			// 将下一层节点放入队列
-			if cur.Left != nil {
-				queue = append(queue, cur.Left)
-			}
-
-			if cur.Right != nil {
-				queue = append(queue, cur.Right)
-			}
-		}
-	}
-}
 
 // 116. 填充每个节点的下一个右侧节点指针
 // Populating Next Right Pointers in Each Node
@@ -1668,7 +1526,6 @@ func findTarget(root *TreeNode, k int) (answer bool) {
 	traverse(root)
 	return
 }
-
 
 // 前序、中序遍历唯一确定一颗树。
 // 中序、后序遍历唯一确定一颗树。
