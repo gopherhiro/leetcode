@@ -20,3 +20,10 @@ func TestMergeSort(t *testing.T) {
 	r := mergeSort(nums)
 	fmt.Println(r)
 }
+
+func TestHeapSort(t *testing.T) {
+	nums := []int{5, 2, 3, 1}
+	fmt.Println(nums)
+	r := heapSort(nums)
+	fmt.Println(r)
+}
