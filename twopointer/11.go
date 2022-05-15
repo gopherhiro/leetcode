@@ -1,15 +1,5 @@
 package twopointer
 
-import "fmt"
-
-func main() {
-	h := []int{4, 2, 0, 3, 2, 5}
-	r := trapRain(h)
-	fmt.Println(r)
-}
-
-
-
 // 11. Container With Most Water
 // 11. 盛最多水的容器
 // 思路：双指针，min(height[left], height[right]) * (right - left)
