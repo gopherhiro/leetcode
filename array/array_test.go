@@ -13,3 +13,10 @@ func TestMissingNumber(t *testing.T) {
 	r2 := missingNumberB(n)
 	fmt.Println(r2)
 }
+
+func TestTopKFrequent(t *testing.T) {
+	nums := []int{1, 1, 1, 2, 2, 3}
+	k := 2
+	r := topKFrequent(nums, k)
+	fmt.Println(r)
+}

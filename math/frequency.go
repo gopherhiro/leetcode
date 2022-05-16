@@ -3,19 +3,21 @@ package math
 import (
 	"fmt"
 	"math/rand"
-	"sort"
 )
 
 func main() {
 	nums := []int{1, 1, 1, 2, 3, 3, 3}
-	o := Constructor(nums)
+	o := ConstructorA(nums)
 	r := o.Pick(1)
 	fmt.Println(r)
 }
 
 /********* XX ********/
 
-
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
 
 /********* 如何在无限序列中随机抽取元素 ********/
 // 382. Linked List Random Node
@@ -26,7 +28,7 @@ type List struct {
 	head *ListNode
 }
 
-func Constructor(head *ListNode) List {
+func ConstructorB(head *ListNode) List {
 	return List{
 		head: head,
 	}
@@ -56,7 +58,7 @@ type Solution struct {
 	nums []int
 }
 
-func Constructor(nums []int) Solution {
+func ConstructorA(nums []int) Solution {
 	return Solution{
 		nums: nums,
 	}
