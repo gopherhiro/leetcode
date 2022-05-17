@@ -1,4 +1,4 @@
-package binarytree
+package tree
 
 // 958. 二叉树的完全性检验
 // 958. Check Completeness of a Binary Tree
