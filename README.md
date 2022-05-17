@@ -6,4 +6,4 @@
 
 it's me : https://leetcode.cn/u/gopherhiro/
 
-- [sort](sort/README.md)
+- [sort](sort)
