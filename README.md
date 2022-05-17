@@ -6,4 +6,27 @@
 
 it's me : https://leetcode.cn/u/gopherhiro/
 
+## 算法目录
+
+- [BFS](BFS)
+- [DFS](DFS)
+- [array](array)
+- [backtracking](backtracking)
+- [binarysearch](binarysearch)
+- [dp](dp)
+- [greedy](greedy)
+- [islands](islands)
+- [linkedlist](linkedlist)
+- [math](math)
+- [parentheses](parentheses)
+- [pkg](pkg)
+- [prefixsum](prefixsum)
+- [queue](queue)
+- [slidingwindow](slidingwindow)
 - [sort](sort)
+- [stack](stack)
+- [string](string)
+- [tree](tree)
+- [twopointer](twopointer)
+- [twosum](twosum)
+- [weeklycontest](weeklycontest)
