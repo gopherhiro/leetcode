@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="244a407d-217f-4c96-a5af-ddd298a8379e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/linkedlist/19.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/leetcode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/leetcode.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/tree/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,18 +56,18 @@
       <module name="leetcode" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/tree.go" />
       <package value="leetcode" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/tree.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build leetcode" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="leetcode" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/linkedlist.go" />
       <package value="leetcode" />
       <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/linkedlist.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -75,6 +77,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
