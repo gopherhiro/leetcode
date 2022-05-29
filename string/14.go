@@ -36,10 +36,3 @@ func LCP(s1, s2 string) string {
 	}
 	return s1[:index]
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
