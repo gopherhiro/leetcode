@@ -6,8 +6,8 @@ import (
 )
 
 func TestRearrangeCharacters(t *testing.T) {
-	s := "aaaddaa"
-	target := "a"
-	r := rearrangeCharacters(s, target)
+	s := "aaa"
+	target := "ae"
+	r := rearrangeCharactersN(s, target)
 	fmt.Println(r)
 }

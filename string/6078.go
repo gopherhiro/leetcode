@@ -1,5 +1,9 @@
 package string
 
+import (
+	"math"
+)
+
 // 2287. Rearrange Characters to Make Target String
 // 6078. 重排字符形成目标字符串
 // 策略：桶排序之木桶效应
@@ -32,4 +36,38 @@ func counter(s string) []int {
 		buckets[v-'a']++
 	}
 	return buckets
+}
+
+// 2287. Rearrange Characters to Make Target String
+// 6078. 重排字符形成目标字符串
+// 策略：哈希统计+木桶效应
+// time O(N) space O(N)
+func rearrangeCharactersN(s string, t string) int {
+	if len(s) < len(t) {
+		return 0
+	}
+	// 统计 s 中的字符
+	sCount := make(map[rune]int, 0)
+	for _, v := range s {
+		sCount[v]++
+	}
+	// 统计 t 中的字符
+	tCount := make(map[rune]int, 0)
+	for _, v := range t {
+		tCount[v]++
+	}
+	ans := math.MaxInt16
+	for ch := range tCount {
+		// s 中只要不包含 t 中的任何一个字符，则不能形成 t 的副本。
+		// 直接 return	0
+		if sCount[ch] == 0 {
+			return 0
+		}
+		// 木桶效应：桶能装多少水取决于它最短的那块木板。
+		ans = min(ans, sCount[ch]/tCount[ch])
+	}
+	if ans == math.MaxInt16 {
+		return 0
+	}
+	return ans
 }
