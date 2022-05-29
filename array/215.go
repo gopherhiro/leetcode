@@ -65,3 +65,32 @@ func shuffle(nums []int) {
 		nums[i], nums[j] = nums[j], nums[i]
 	})
 }
+
+// 216. Kth Smallest Element in an Array
+// 216. 数组中的第K个最小元素
+// 策略：基于二分搜索的快排选择
+// partition 函数会将 nums[p] 排到正确的位置，使得
+// nums[lo..p-1] < nums[p] < nums[p+1..hi]
+// time O(N) space O(logN)
+func findKthSmallest(nums []int, k int) int {
+	// 为了避免出现耗时的极端情况，先随机打乱
+	shuffle(nums)
+	// 排好序后，找第 k-1 个元素即可。
+	k = k - 1
+	lo, hi := 0, len(nums)-1
+	for lo <= hi {
+		// 在 nums[lo..hi] 中选择一个分区点
+		p := partition(nums, lo, hi)
+		if p < k {
+			// 第 k 大元素在 nums[p+1..hi] 中
+			lo = p + 1
+		} else if p > k {
+			// 第 k 大元素在 nums[..] 中
+			hi = p - 1
+		} else {
+			// 找到第 k 大元素
+			return nums[p]
+		}
+	}
+	return math.MinInt16
+}

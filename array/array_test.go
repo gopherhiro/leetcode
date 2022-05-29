@@ -12,6 +12,13 @@ func TestFindKthLargest(t *testing.T) {
 	fmt.Println(r)
 }
 
+func TestFindKthSmallest(t *testing.T) {
+	nums := []int{3, 2, 4, 5, 1}
+	k := 3
+	r := findKthSmallest(nums, k)
+	fmt.Println(r)
+}
+
 func TestMissingNumber(t *testing.T) {
 	n := []int{1, 3, 2, 5, 0}
 	r1 := missingNumber(n)
