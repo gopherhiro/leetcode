@@ -5,17 +5,43 @@ import (
 	"testing"
 )
 
+func TestKClosestQuickSelect(t *testing.T) {
+	points := [][]int{
+		{3, 3},
+		{5, -1},
+		{-2, 4},
+	}
+	k := 1
+	r := kClosestQuickSelect(points, k)
+	fmt.Println(r)
+}
+
+func TestKClosest(t *testing.T) {
+	points := [][]int{
+		{3, 3},
+		{5, -1},
+		{-2, 4},
+	}
+	k := 1
+	r := kClosest(points, k)
+	fmt.Println(r)
+}
+
 func TestFindKthLargest(t *testing.T) {
 	nums := []int{3, 2, 1, 5, 6, 4}
 	k := 2
+	fmt.Println("before:", nums)
 	r := findKthLargest(nums, k)
+	fmt.Println("after:", nums)
 	fmt.Println(r)
 }
 
 func TestFindKthSmallest(t *testing.T) {
 	nums := []int{3, 2, 4, 5, 1}
 	k := 3
+	fmt.Println("before:", nums)
 	r := findKthSmallest(nums, k)
+	fmt.Println("after:", nums)
 	fmt.Println(r)
 }
 
