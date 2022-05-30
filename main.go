@@ -1,20 +1,31 @@
 package main
 
 import (
-	"crypto/md5"
-	"encoding/hex"
 	"fmt"
+	"strings"
 )
 
 func main() {
-	str := "abc"
-	fmt.Println(str)
-	r := getMD5String(str)
-	fmt.Println(r)
+	r := rr('a', 5)
+	fmt.Println(string(r))
 }
 
-func getMD5String(text string) string {
-	h := md5.New()
-	h.Write([]byte(text))
-	return hex.EncodeToString(h.Sum(nil))
+func rr(ch rune, count int) string {
+	var str strings.Builder
+	i := 0
+	for i < count {
+		str.WriteString(string(ch))
+		i++
+	}
+	return str.String()
+}
+
+func repeat(b []rune, count int) []rune {
+	nb := make([]rune, len(b)*count)
+	bp := copy(nb, b)
+	for bp < len(nb) {
+		copy(nb[bp:], nb[:bp])
+		bp *= 2
+	}
+	return nb
 }

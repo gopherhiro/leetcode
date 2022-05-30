@@ -15,9 +15,6 @@ func topKFrequent(nums []int, k int) []int {
 	// 使用「桶排序」来进行频次筛选
 	buckets := make([][]int, len(nums)+1)
 	for num, cnt := range ht {
-		if len(buckets[cnt]) == 0 {
-			buckets[cnt] = make([]int, 0)
-		}
 		buckets[cnt] = append(buckets[cnt], num)
 	}
 
