@@ -10,7 +10,7 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	if root == nil {
 		return false
 	}
-	ans := false
+	found := false
 
 	var dfs func(root *TreeNode, remain int)
 	dfs = func(root *TreeNode, remain int) {
@@ -19,14 +19,15 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 		}
 		remain -= root.Val
 		if remain == 0 && root.Left == nil && root.Right == nil {
-			ans = true
+			found = true
+			return
 		}
 		dfs(root.Left, remain)
 		dfs(root.Right, remain)
 	}
 
 	dfs(root, targetSum)
-	return ans
+	return found
 }
 
 // 思路：DFS

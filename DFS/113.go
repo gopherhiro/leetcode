@@ -12,6 +12,7 @@ func pathSum(root *TreeNode, targetSum int) (ans [][]int) {
 		return
 	}
 
+	// path 是公用数组，在 DFS 过程中需要进行回溯，以保持路径干净。
 	path := make([]int, 0)
 
 	var dfs func(root *TreeNode, remain int)
