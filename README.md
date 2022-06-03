@@ -6,7 +6,11 @@
 
 中文版：https://leetcode.cn/problemset/all/
 
-it's me：https://leetcode.com/hiroleetcode/
+## it's me
+
+英文版：https://leetcode.com/gopherhiro/
+
+中文版：https://leetcode.cn/u/gopherhiro/
 
 ## 算法目录
 
