@@ -5,6 +5,16 @@ import (
 	"testing"
 )
 
+func TestLRUCache(t *testing.T) {
+	capacity := 2
+	obj := Constructor(capacity)
+	obj.Put(1, 1)
+	obj.Put(2, 2)
+	obj.Get(1)
+	obj.Put(3, 3)
+
+}
+
 func TestRemoveElements(t *testing.T) {
 	num1 := []int{1, 2, 3, 4, 5}
 	h1 := pkg.CreateListFromTail(num1)

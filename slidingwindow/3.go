@@ -23,6 +23,7 @@ func lengthOfLongestSubstring(s string) int {
 			left++
 			window[d]--
 		}
+		// 保证没有重复字符，再进行统计
 		ans = max(ans, right-left)
 	}
 	return ans
