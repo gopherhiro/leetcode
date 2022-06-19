@@ -1,6 +1,6 @@
 # Grokking the Coding Interview
 
-## leetcode 我的刷题之旅
+## leetcode
 
 英文版：https://leetcode.com/problemset/all/
 
