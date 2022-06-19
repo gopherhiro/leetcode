@@ -25,7 +25,6 @@
 - [linkedlist](linkedlist)
 - [math](math)
 - [parentheses](parentheses)
-- [pkg](pkg)
 - [prefixsum](prefixsum)
 - [queue](queue)
 - [slidingwindow](slidingwindow)
