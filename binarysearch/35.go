@@ -13,6 +13,7 @@ func searchInsert(nums []int, target int) int {
 	if len(nums) == 0 {
 		return -1
 	}
+
 	left, right := 0, len(nums)-1
 	for left <= right {
 		mid := left + (right-left)/2

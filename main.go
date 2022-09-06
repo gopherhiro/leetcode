@@ -1,7 +1,9 @@
 package main
 
-import "context"
+import (
+	"leetcode/gouse"
+)
 
 func main() {
-	context.Background()
+	gouse.PrintNumberAndLetter()
 }

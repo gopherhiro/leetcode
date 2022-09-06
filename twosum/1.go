@@ -6,7 +6,7 @@ import "sort"
 // 1. Two Sum
 // 思路：hash + 遍历
 // time O(N), space O(N)
-func twoSum(nums []int, target int) []int {
+func TwoSum(nums []int, target int) []int {
 	hash := make(map[int]int, 0)
 	for k, v := range nums {
 		if i, ok := hash[target-v]; ok {

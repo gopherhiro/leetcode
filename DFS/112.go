@@ -3,8 +3,8 @@ package DFS
 // 112. Path Sum
 // 112. 路径总和
 // 思路：DFS 遍历二叉树
-// 1、遍历每一个节点，使用targetSum减去节点值
-// 2、判断targetSum是否为0，并且是否达到叶子节点
+// 1、遍历每一个节点，使用 targetSum 减去节点值
+// 2、判断 targetSum 是否为0，并且是否达到叶子节点
 // time O(n) space O(n)
 func hasPathSum(root *TreeNode, targetSum int) bool {
 	if root == nil {

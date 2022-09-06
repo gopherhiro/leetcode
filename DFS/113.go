@@ -37,6 +37,7 @@ func pathSum(root *TreeNode, targetSum int) (ans [][]int) {
 			ans = append(ans, tmp)
 			return
 		}
+
 		dfs(root.Left, remain)
 		dfs(root.Right, remain)
 	}
