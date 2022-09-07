@@ -1,6 +1,8 @@
 package sort
 
-import "math"
+import (
+	"math"
+)
 
 // 有一个无序的整数序列，求序列的中位数
 // 例如给 定数组 1、5、2、9、8、0、6，中位数是 5。
@@ -12,11 +14,12 @@ import "math"
 // nums[lo..p-1] < nums[p] < nums[p+1..hi]
 // time O(N) space O(1)
 func FindMedian(nums []int) int {
-	// 中位数的位置：数组个数的中间位置。
+	// 中位数的位置，即数组个数的中间位置（已定）。
 	k := (len(nums) - 1) / 2
 	lo, hi := 0, len(nums)-1
 	for lo <= hi {
 		// 在 nums[lo..hi] 中选择一个分区点
+		// 分区后，p 坐标就是 num[p] 排序后所在的正确顺序位置。
 		p := partitionN(nums, lo, hi)
 		if p < k {
 			// 中位数在 nums[p+1..hi] 中
