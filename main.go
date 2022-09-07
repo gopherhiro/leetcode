@@ -1,9 +1,11 @@
 package main
 
 import (
-	"leetcode/gouse"
+	"fmt"
+	"leetcode/dp"
 )
 
 func main() {
-	gouse.PrintNumberAndLetter()
+	r := dp.ClimbStairsIter(3)
+	fmt.Println(r)
 }
