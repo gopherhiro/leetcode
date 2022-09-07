@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
-	"leetcode/dp"
+
+	"leetcode/sort"
 )
 
 func main() {
-	r := dp.ClimbStairsIter(3)
+	nums := []int{1, 3, 2, 5, 6}
+	r := sort.FindMedian(nums)
 	fmt.Println(r)
 }
