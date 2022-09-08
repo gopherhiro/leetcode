@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
-
-	"leetcode/sort"
+	"leetcode/interviewed"
 )
 
 func main() {
-	nums := []int{11, 8, 3, 9, 7, 1, 2, 5}
-	r := sort.FindMedian(nums)
-	fmt.Println(r)
+	s := "2020-05-16 19:20:34|user.login|name=Charles&location=Beijing&device=iPhone"
+	r, err := interviewed.ParseLog(s)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(r)
+	}
 }
