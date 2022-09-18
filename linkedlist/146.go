@@ -80,7 +80,7 @@ func (c *LRUCache) Put(key int, val int) {
 	c.addRecently(key, val)
 }
 
-// 双向链表
+// 双向链表的结点
 type Node struct {
 	key  int
 	val  int
@@ -95,6 +95,7 @@ func newNode(k, v int) *Node {
 	}
 }
 
+// 双向链表
 type DList struct {
 	head *Node
 	tail *Node
