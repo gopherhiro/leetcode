@@ -3,28 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	s := "zabc"
-	r := longestContinuousSubstring(s)
+	r := smallestEvenMultiple(6)
 	fmt.Println(r)
 }
 
-func longestContinuousSubstring(s string) int {
-	ans, count := 0, 1
-	for i := 1; i < len(s); i++ {
-		if s[i] == s[i-1]+1 {
-			count++
-		} else {
-			ans = max(ans, count)
-			count = 1
-		}
+func smallestEvenMultiple(n int) int {
+	isOdd := n%2 != 0
+	if isOdd {
+		return 2 * n
 	}
-	ans = max(ans, count)
-	return ans
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
+	return n
 }
