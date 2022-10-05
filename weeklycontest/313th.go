@@ -6,8 +6,34 @@ import (
 )
 
 func main() {
-	r := minimizeXor(25, 72)
+	grid := [][]int{
+		{6, 2, 1, 3}, {4, 2, 1, 5}, {9, 2, 8, 7}, {4, 1, 2, 9},
+	}
+	r := maxSum(grid)
 	fmt.Println(r)
+}
+
+// 6193. 沙漏的最大总和
+// 思路：模拟统计
+// time O(mn) space O(1)
+func maxSum(grid [][]int) int {
+	ans := 0
+	for i := 1; i < len(grid)-1; i++ {
+		for j := 1; j < len(grid[i])-1; j++ {
+			up := grid[i-1][j-1] + grid[i-1][j] + grid[i-1][j+1]
+			down := grid[i+1][j-1] + grid[i+1][j] + grid[i+1][j+1]
+			sum := up + grid[i][j] + down
+			ans = max(ans, sum)
+		}
+	}
+	return ans
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
 }
 
 // 6194. 最小 XOR

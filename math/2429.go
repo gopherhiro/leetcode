@@ -1,14 +1,6 @@
-package main
+package math
 
-import (
-	"fmt"
-	"math/bits"
-)
-
-func main() {
-	r := minimizeXor(3, 5)
-	fmt.Println(r)
-}
+import "math/bits"
 
 // 2429. 最小 XOR
 // 思路：位运算
@@ -16,6 +8,7 @@ func main() {
 func minimizeXor(num1 int, num2 int) int {
 	c1 := bits.OnesCount(uint(num1))
 	c2 := bits.OnesCount(uint(num2))
+	// 如果 c1 == c2，那么与其本身异或的值是最小的。
 	if c1 == c2 {
 		return num1
 	}
