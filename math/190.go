@@ -1,12 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	num := uint32(2684354560)
-	r := reverseBits(num)
-	fmt.Println(r)
-}
+package math
 
 // 190. Reverse Bits
 // 190. 颠倒二进制位
