@@ -3,22 +3,30 @@ package main
 import "fmt"
 
 func main() {
-	num := uint32(2684354560)
-	r := reverseBits(num)
+	num := 19
+	r := isHappy2(num)
 	fmt.Println(r)
 }
 
-// 190. Reverse Bits
-// 190. 颠倒二进制位
-// 思路：循环（位运算）
-// time O(1) space O(1)
-func reverseBits(num uint32) uint32 {
-	// 模拟运算：把 num 的 bits 颠倒过来。
-	var ans uint32
-	for i := 0; i < 32; i++ {
-		ans = ans << 1 // ans 左移
-		ans += num & 1 // num 的最低位是否为1，是 ans++，否 ans 不变。
-		num = num >> 1 // num 右移
+// 202. Happy Number
+// 202. 快乐数
+// 思路：快慢指针
+// time O(logn) space O(1)
+func isHappy2(n int) bool {
+	slow, fast := n, next(n)
+	for fast != 1 && slow != fast {
+		slow = next(slow)
+		fast = next(next(fast))
 	}
-	return ans
+	return fast == 1
+}
+
+func next(n int) int {
+	sum := 0
+	for n > 0 {
+		d := n % 10
+		n = n / 10
+		sum += d * d
+	}
+	return sum
 }
