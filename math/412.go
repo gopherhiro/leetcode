@@ -1,16 +1,9 @@
-package main
+package math
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
-
-func main() {
-	n := 5
-	r := fizzBuzz2(n)
-	fmt.Println(r)
-}
 
 // 412. Fizz Buzz
 // 思路：模拟
