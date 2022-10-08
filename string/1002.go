@@ -1,15 +1,6 @@
-package main
+package string
 
-import (
-	"fmt"
-	"math"
-)
-
-func main() {
-	words := []string{"bella", "label", "roller"}
-	ans := commonChars(words)
-	fmt.Println(ans)
-}
+import "math"
 
 // 1002. Find Common Characters
 // 1002. 查找共用字符
