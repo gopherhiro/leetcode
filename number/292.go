@@ -1,4 +1,4 @@
-package math
+package number
 
 // 292. Nim 游戏
 func canWinNim(n int) bool {

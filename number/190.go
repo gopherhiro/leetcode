@@ -1,4 +1,4 @@
-package math
+package number
 
 // 190. Reverse Bits
 // 190. 颠倒二进制位

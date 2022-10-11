@@ -1,4 +1,4 @@
-package math
+package number
 
 // 191. Number of 1 Bits
 // 191. 位1的个数

@@ -1,4 +1,4 @@
-package math
+package number
 
 // 338. Counting Bits
 // 338. 比特位计数

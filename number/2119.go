@@ -1,4 +1,4 @@
-package math
+package number
 
 // 2119. A Number After a Double Reversal
 // 2119. 反转两次的数字

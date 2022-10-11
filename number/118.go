@@ -1,4 +1,4 @@
-package math
+package number
 
 // 118. Pascal's Triangle
 // 118. 杨辉三角

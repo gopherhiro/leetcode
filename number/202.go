@@ -1,4 +1,4 @@
-package math
+package number
 
 // 202. Happy Number
 // 202. 快乐数

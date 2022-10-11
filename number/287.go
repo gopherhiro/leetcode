@@ -1,4 +1,4 @@
-package math
+package number
 
 // 287. Find the Duplicate Number
 // 287. 寻找重复数

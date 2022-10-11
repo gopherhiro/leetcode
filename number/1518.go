@@ -1,4 +1,4 @@
-package math
+package number
 
 // 1518. 换酒问题
 // 思路：模拟：减法

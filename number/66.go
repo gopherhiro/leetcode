@@ -1,4 +1,4 @@
-package math
+package number
 
 // 66. Plus One
 // 66. 加一

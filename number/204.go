@@ -1,4 +1,4 @@
-package math
+package number
 
 /********* 如何高效寻找素数 ********/
 // 204. Count Primes
