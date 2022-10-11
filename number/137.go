@@ -1,4 +1,4 @@
-package math
+package number
 
 // 137. Single Number II
 // 137. 只出现一次的数字 II

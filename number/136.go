@@ -1,4 +1,4 @@
-package math
+package number
 
 // 136. Single Number
 // 136. 只出现一次的数字

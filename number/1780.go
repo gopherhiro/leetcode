@@ -1,14 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	n := 21
-	ans := checkPowersOfThree(n)
-	fmt.Println(ans)
-}
+package number
 
 // 1780. Check if Number is a Sum of Powers of Three
 // 1780. 判断一个数字是否可以表示成三的幂的和
