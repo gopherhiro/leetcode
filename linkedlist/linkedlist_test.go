@@ -1,9 +1,20 @@
 package linkedlist
 
 import (
+	"fmt"
 	"leetcode/pkg"
 	"testing"
 )
+
+func TestNumComponents(t *testing.T) {
+	num1 := []int{0, 1, 2, 3}
+	h1 := pkg.CreateListFromTail(num1)
+	pkg.PrintLinkedList(h1)
+
+	nums := []int{0, 1, 3}
+	res := numComponents2(h1, nums)
+	fmt.Println(res)
+}
 
 func TestLRUCache(t *testing.T) {
 	capacity := 2

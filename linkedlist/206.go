@@ -1,14 +1,16 @@
 package linkedlist
 
+import "leetcode/pkg"
+
 // 206. Reverse Linked List
 // 206. 反转链表
 // 策略：迭代
 // time O(N) space O(1)
-func reverseList(head *ListNode) *ListNode {
+func reverseList(head *pkg.ListNode) *pkg.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	var prev, curr *ListNode
+	var prev, curr *pkg.ListNode
 	for head != nil {
 		curr = head      // 当前节点
 		head = head.Next // 去到下一个节点
@@ -22,7 +24,7 @@ func reverseList(head *ListNode) *ListNode {
 // 206. 反转链表
 // 策略：递归
 // time O(N) space O(N)
-func reverseListR(head *ListNode) *ListNode {
+func reverseListR(head *pkg.ListNode) *pkg.ListNode {
 	// base case
 	if head == nil || head.Next == nil {
 		return head
