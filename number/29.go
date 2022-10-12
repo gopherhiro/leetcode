@@ -1,5 +1,9 @@
 package number
 
+// Given integer operands a and n,
+// a << n; shifts all bits in a to the left n times
+// a >> n; shifts all bits in a to the right n times
+
 // 29. Divide Two Integers
 // 29. 两数相除
 // 思路：bit operation
