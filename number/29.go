@@ -29,6 +29,7 @@ func divide(a int, b int) int {
 		shift := 0 // times of left shift
 		// 第一种写法：
 		// b<<shift<<1, 计算步骤：((b<<shift)<<1), 这里 <<1：是为了再走一步，确保 x 能够得到正确的左移次数。
+		// 也可写为：b<<(shift+1)
 		for a-(b<<shift<<1) >= 0 {
 			shift++
 		}
