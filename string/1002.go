@@ -33,10 +33,3 @@ func commonChars(words []string) []string {
 	}
 	return ans
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}

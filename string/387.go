@@ -44,10 +44,3 @@ func firstUniqChar2(s string) int {
 	}
 	return first
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
