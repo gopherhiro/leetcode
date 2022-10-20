@@ -4,9 +4,8 @@ import "fmt"
 
 func main() {
 	board := [][]int{
-		{1, 1, 3},
-		{3, 1, 2},
-		{2, 3, 1},
+		{50},
 	}
-	fmt.Println(board)
+	t := diagonalSum(board)
+	fmt.Println(t)
 }
