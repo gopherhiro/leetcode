@@ -1,14 +1,10 @@
-package main
-
-func main() {
-
-}
+package stack
 
 type StockSpanner struct {
 	stack [][2]int
 }
 
-func Constructor() StockSpanner {
+func Constructorq() StockSpanner {
 	return StockSpanner{
 		stack: make([][2]int, 0),
 	}
