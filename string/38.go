@@ -1,16 +1,9 @@
-package main
+package string
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
-
-func main() {
-	n := 2
-	r := countAndSay(n)
-	fmt.Println(r)
-}
 
 // 38. Count and Say
 // 38. 外观数列
