@@ -1,16 +1,6 @@
-package main
+package string
 
-import (
-	"fmt"
-	"strings"
-)
-
-func main() {
-	w1 := "abc45"
-	w2 := "pqr12"
-	r := mergeAlternately(w1, w2)
-	fmt.Println(r)
-}
+import "strings"
 
 // 1768. Merge Strings Alternately
 // 1768. 交替合并字符串
