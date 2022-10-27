@@ -1,14 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	nums := []int{1, 2, -3, -5}
-	r := arraySign(nums)
-	fmt.Println(r)
-}
+package array
 
 // 1822. Sign of the Product of an Array
 // 1822. 数组元素积的符号
