@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	nums := []int{3, 2, 1, 5, 4}
-	r := countKDifference(nums, 2)
+	nums := []int{3, 1, 2, 4}
+	r := sumSubarrayMins(nums)
 	fmt.Println(r)
 }
