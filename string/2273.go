@@ -1,12 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	strs := []string{"abba", "baba", "bbaa", "cd", "cd"}
-	r := removeAnagrams(strs)
-	fmt.Println(r)
-}
+package string
 
 // 2273. Find Resultant Array After Removing Anagrams
 // 2273. 移除字母异位词后的结果数组
@@ -55,23 +47,4 @@ func countWord(s string) [26]byte {
 		count[v-'a']++
 	}
 	return count
-}
-
-// 49. Group Anagrams
-// 49. 字母异位词分组
-// 思路：哈希表
-// time O(nk) space O(nk)
-func groupAnagrams(strs []string) [][]string {
-	// 字符出现频次一致的单词，分成一个组
-	m := make(map[[26]byte][]string, 0)
-	for _, str := range strs {
-		key := countWord(str)
-		m[key] = append(m[key], str)
-	}
-	// 把分组结果 append 在一起即可。
-	answer := make([][]string, 0, len(m))
-	for _, group := range m {
-		answer = append(answer, group)
-	}
-	return answer
 }
