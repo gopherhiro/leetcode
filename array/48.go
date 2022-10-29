@@ -1,18 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	m := [][]int{
-		{1, 2, 3},
-		{4, 5, 6},
-		{7, 8, 9},
-	}
-	rotate(m)
-	fmt.Println(m)
-}
+package array
 
 // 48. Rotate Image
 // 48. 旋转图像
