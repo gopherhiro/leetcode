@@ -5,8 +5,7 @@ import (
 )
 
 func main() {
-	p := "Bob"
-	ban := []string{}
-	r := mostCommonWord(p, ban)
+	p := "a1b2"
+	r := letterCasePermutation(p)
 	fmt.Println(r)
 }
