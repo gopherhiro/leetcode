@@ -30,7 +30,7 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	return found
 }
 
-// 思路：DFS
+// 思路：回溯型 DFS
 // 遍历二叉树，维护一个当前节点和，与targetSum比较即可。
 func hasPathSumM(root *TreeNode, targetSum int) bool {
 	if root == nil {
