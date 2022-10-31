@@ -1,14 +1,6 @@
-package main
+package string
 
-import (
-	"bytes"
-	"fmt"
-)
-
-func main() {
-	r := magicalString(4)
-	fmt.Println(r)
-}
+import "bytes"
 
 // 481. Magical String
 // 481. 神奇字符串
