@@ -1,15 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	w1 := []string{"ab", "c"}
-	w2 := []string{"a", "b1c"}
-	r := arrayStringsAreEqual(w1, w2)
-	fmt.Println(r)
-}
+package string
 
 // 1662. Check If Two String Arrays are Equivalent
 // 1662. 检查两个字符串数组是否相等
