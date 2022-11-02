@@ -1,16 +1,14 @@
-package main
+package DFS
 
-import (
-	"fmt"
-)
-
-func main() {
-	nums := []int{1, 1, 1}
-	target := 3
-	r := findTargetSumWays(nums, target)
-	fmt.Println(r)
-}
-
+/*
+with array nums = [1,1,1], targer = 3 example,
+binary tree structure as follows:
+                1
+[0]		 +1		     -1
+[1]	  +1    -1     +1   -1
+[2] +1 -1 +1 -1  +1 -1 +1 -1
+	 y  n  n  n   n  n  n  n
+*/
 // 494. Target Sum
 // 494. 目标和
 // 思路：DFS
