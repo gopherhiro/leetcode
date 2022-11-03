@@ -5,7 +5,12 @@ import (
 )
 
 func main() {
-	m, n := 19, 13
-	r := uniquePaths(m, n)
+	grid := [][]int{
+		{1, 0, 0, 0},
+		{0, 0, 0, 0},
+		{0, 0, 2, -1},
+	}
+	r := uniquePathsIII(grid)
 	fmt.Println(r)
+
 }
