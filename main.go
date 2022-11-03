@@ -5,12 +5,11 @@ import (
 )
 
 func main() {
-	grid := [][]int{
-		{1, 0, 0, 0},
-		{0, 0, 0, 0},
-		{0, 0, 2, -1},
+	matrix := [][]int{
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9},
 	}
-	r := uniquePathsIII(grid)
+	r := spiralOrder(matrix)
 	fmt.Println(r)
-
 }
