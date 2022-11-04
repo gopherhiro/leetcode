@@ -9,31 +9,33 @@ func spiralOrder(matrix [][]int) []int {
 	up, down := 0, m-1
 	left, right := 0, n-1
 
+	// 在结果集长度在[0, m*n] 范围内进行遍历
 	ans := make([]int, 0)
 	total := m * n
-	// 在结果集长度在[0, m*n] 范围内进行迭代
 	for len(ans) < total {
-		// from left to right
+		// traverse up boundary, up++
 		for j := left; j <= right && len(ans) < total; j++ {
 			ans = append(ans, matrix[up][j])
 		}
-		// from up to down
-		for i := up + 1; i <= down-1 && len(ans) < total; i++ {
+		up++
+
+		// traverse right boundary, right--
+		for i := up; i <= down && len(ans) < total; i++ {
 			ans = append(ans, matrix[i][right])
 		}
-		// from right to left
+		right--
+
+		// traverse down boundary, down--
 		for j := right; j >= left && len(ans) < total; j-- {
 			ans = append(ans, matrix[down][j])
 		}
-		// from down to up
-		for i := down - 1; i >= up+1 && len(ans) < total; i-- {
+		down--
+
+		// traverse left boundary, left++
+		for i := down; i >= up && len(ans) < total; i-- {
 			ans = append(ans, matrix[i][left])
 		}
-		// 缩小范围，进行下一轮循环
-		up++
-		down--
 		left++
-		right--
 	}
 	return ans
 }
