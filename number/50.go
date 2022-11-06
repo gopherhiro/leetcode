@@ -1,15 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	x := float64(2.1)
-	n := 3
-	r := myPow(x, n)
-	fmt.Println(r)
-}
+package number
 
 // 50. Pow(x, n)
 // 思路：迭代 + 快速幂
