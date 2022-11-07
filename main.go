@@ -9,3 +9,8 @@ func main() {
 	sortColors(nums)
 	fmt.Println(nums)
 }
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
