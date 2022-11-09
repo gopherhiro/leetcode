@@ -54,8 +54,8 @@ func uniquePathsIII(grid [][]int) int {
 		// 标记走过
 		grid[i][j] = -2
 
-		dfs(grid, i+1, j, step+1) // move up
-		dfs(grid, i-1, j, step+1) // move down
+		dfs(grid, i-1, j, step+1) // move up
+		dfs(grid, i+1, j, step+1) // move down
 		dfs(grid, i, j-1, step+1) // move left
 		dfs(grid, i, j+1, step+1) // move right
 

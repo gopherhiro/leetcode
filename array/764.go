@@ -1,17 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	n := 5
-	mines := [][]int{
-		{4, 2},
-	}
-	r := orderOfLargestPlusSign(n, mines)
-	fmt.Println(r)
-}
+package array
 
 // 764. Largest Plus Sign
 // 764. 最大加号标志
