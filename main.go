@@ -1,16 +1,15 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	b := [][]byte{
-		{'C', 'A', 'A'},
-		{'A', 'A', 'A'},
-		{'B', 'C', 'D'},
+		{'o', 'a', 'b', 'n'},
+		{'o', 't', 'a', 'e'},
+		{'a', 'h', 'k', 'r'},
+		{'a', 'f', 'l', 'v'},
 	}
-	w := "AAB"
-	r := exist(b, w)
+	w := []string{"oa", "oaa"}
+	r := findWords(b, w)
 	fmt.Println(r)
 }
