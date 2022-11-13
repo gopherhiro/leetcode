@@ -5,8 +5,10 @@ import (
 )
 
 func main() {
-	d := []string{"cat", "bat", "rat"}
-	s := "the cattle was rattled by the battery"
-	r := replaceWords(d, s)
+	o := Constructor()
+	s := []string{"hello", "leetcode"}
+	w := "hello"
+	o.BuildDict(s)
+	r := o.Search(w)
 	fmt.Println(r)
 }
