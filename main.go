@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	s := "12203"
-	r := numDecodingsD(s)
+	s := "*********"
+	r := numDecodings(s)
 	fmt.Println("r:", r)
 }

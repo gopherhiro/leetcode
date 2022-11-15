@@ -1,4 +1,4 @@
-package newdp
+package memoization
 
 import "strings"
 
@@ -33,6 +33,8 @@ func numDecodings(s string) int {
 	var dfs func(i int) int
 	dfs = func(i int) int {
 		// base case
+		// 达到字符串末尾时结束
+		// 找到了一条路径，所以返回 1
 		if i == len(s) {
 			return 1
 		}
