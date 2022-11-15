@@ -63,7 +63,7 @@ func fibM(n int) int {
 // 509. Fibonacci Number
 // 509. 斐波那契数
 // 思路：暴力递归
-// time O(2^N) space O(1)
+// time O(2^N) space O(N)
 func fibR(n int) int {
 	if n <= 1 {
 		return n
