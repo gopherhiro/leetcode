@@ -1,4 +1,4 @@
-package array
+package monotonic
 
 // 907. Sum of Subarray Minimums
 // 907. 子数组的最小值之和
