@@ -5,8 +5,8 @@ import (
 )
 
 func main() {
-	nums := []int{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}
+	s := "ABCCABC"
 	k := 2
-	r := longestOnes(nums, k)
+	r := characterReplacement(s, k)
 	fmt.Println("answer:", r)
 }
