@@ -16,6 +16,12 @@ func reverseN(x int) int {
 		sum = sum*10 + remain
 		x = x / 10
 	}
+
+	// 不在[-2^31..2^31-1] 范围内，返回0
+	if sum > math.MaxInt32 || sum < math.MinInt32 {
+		return 0
+	}
+
 	return sum
 }
 
@@ -36,6 +42,7 @@ func reverse(x int) int {
 	}
 
 	sum := 0
+	// also ok, for x != 0
 	for x > 0 {
 		remain := x % 10
 		sum = sum*10 + remain

@@ -41,9 +41,10 @@ func PrintNumberAndLetter() {
 			number <- true
 		}
 	}()
-	number <- true
-	wg.Wait()
 
+	number <- true
+
+	wg.Wait()
 	fmt.Println()
 	fmt.Println("Print DONE!")
 }
