@@ -4,8 +4,12 @@ import (
 	"fmt"
 )
 
+// type ListNode struct {
+// 	Val  int
+// 	Next *ListNode
+// }
+
 func main() {
-	x := -123
-	r := reverse(x)
-	fmt.Println(r)
+	r := fib(7)
+	fmt.Println("r:", r)
 }
