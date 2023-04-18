@@ -11,6 +11,7 @@ func quickSort(nums []int) []int {
 	if n == 0 || n == 1 {
 		return nums
 	}
+
 	var sort func(num []int, lo, hi int)
 	sort = func(nums []int, lo, hi int) {
 		// base case
@@ -21,6 +22,7 @@ func quickSort(nums []int) []int {
 		sort(nums, lo, p-1)
 		sort(nums, p+1, hi)
 	}
+
 	// 为了避免出现耗时的极端情况，先随机打乱
 	shuffle(nums)
 
