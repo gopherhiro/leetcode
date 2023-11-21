@@ -4,7 +4,7 @@ package number
 // 287. 寻找重复数
 // 思路：XOR异或
 // x ^ 0 = x
-// X ^ x = 0
+// x ^ x = 0
 // x ^ y = y ^ x
 func findDuplicateXOR(nums []int) int {
 	ans := 0
