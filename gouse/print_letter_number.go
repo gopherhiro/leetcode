@@ -3,10 +3,13 @@ package gouse
 import (
 	"fmt"
 	"sync"
-	"unicode/utf8"
 )
 
-// 用两个无缓冲的 channel 来控制 goroutine 的协作。
+// 题目描述：给出两个列表：
+// 列表1：a,b,c,d,e,f,g,h
+// 列表2：1,2,3,4,5,6,7,8
+// 使用两个 goroutine 交替打印数字和字母，比如：ab12cd34ef56gh78
+// 思路：用两个无缓冲的 channel 来控制 goroutine 的协作。
 
 func PrintNumberAndLetter() {
 	// number 的 channel 用来通知打印数字的 goroutine.
@@ -32,7 +35,7 @@ func PrintNumberAndLetter() {
 		for {
 			<-letter // 等待「打印字母」通知，打印字母，然后通知 number 的 channel
 			// 结束条件：到达字母字符串的末尾时，结束打印。
-			if i >= utf8.RuneCountInString(str) {
+			if i >= len(str) {
 				wg.Done()
 				return
 			}

@@ -27,7 +27,6 @@ func averageOfLevels(root *TreeNode) (ans []float64) {
 		}
 		r := sum / float64(levelSize)
 		ans = append(ans, r)
-
 	}
 	return
 }

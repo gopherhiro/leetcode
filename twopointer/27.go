@@ -40,6 +40,7 @@ func removeElementII(nums []int, val int) int {
 		// 维护 [0..slow-1] 不重复
 		nums[slow] = nums[fast]
 		slow++
+		fast++
 	}
 	// slow 即是去重后的数组长度
 	return slow

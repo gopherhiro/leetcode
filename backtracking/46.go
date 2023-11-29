@@ -12,7 +12,7 @@ func permute(nums []int) (ans [][]int) {
 		// 结束条件：已选择路径与原始可选列表长度相等时
 		// 即表示得到了一个全排列
 		if len(track) == len(nums) {
-			tmp := make([]int, len(track))
+			tmp := make([]int, 0, len(track))
 			copy(tmp, track)
 			ans = append(ans, tmp)
 			return
@@ -20,7 +20,7 @@ func permute(nums []int) (ans [][]int) {
 
 		for _, num := range nums {
 			// 剪枝，排除不合理的情况。
-			if _, ok := find(track, num); ok {
+			if find(track, num) {
 				continue
 			}
 			// 为了维护每个节点的选择列表和路径，需要：
@@ -47,13 +47,13 @@ func permute(nums []int) (ans [][]int) {
 // Find takes a slice and looks for an element in it. If found it will
 // return it's key, otherwise it will return -1 and a bool of false.
 // time O(N)
-func find(s []int, val int) (int, bool) {
-	for i, item := range s {
+func find(s []int, val int) bool {
+	for _, item := range s {
 		if item == val {
-			return i, true
+			return true
 		}
 	}
-	return -1, false
+	return false
 }
 
 // 46. Permutations

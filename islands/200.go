@@ -39,7 +39,6 @@ func numIslands(grid [][]byte) int {
 				answer++        // 遇到陆地，将其作为根据地，即新岛屿
 				dfs(grid, i, j) // 收复其相邻陆地，形成统一岛屿
 			}
-
 		}
 	}
 	return answer

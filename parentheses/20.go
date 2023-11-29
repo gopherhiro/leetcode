@@ -7,7 +7,7 @@ func isValid(s string) bool {
 	if len(s) == 0 {
 		return false
 	}
-	stack := make([]byte, 0)
+	stack := make([]byte, 0, len(s))
 	// 遍历字符串
 	for i := 0; i < len(s); i++ {
 		// 是左括号，入栈

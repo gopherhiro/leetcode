@@ -31,25 +31,25 @@ func mergeSort(nums []int) []int {
 }
 
 func merge(nums []int, lo, mid, hi int) {
-	tmp := make([]int, 0)
+	merged := make([]int, 0)
 	i, j := lo, mid+1
 	for i <= mid && j <= hi {
 		if nums[i] < nums[j] {
-			tmp = append(tmp, nums[i])
+			merged = append(merged, nums[i])
 			i++
 		} else {
-			tmp = append(tmp, nums[j])
+			merged = append(merged, nums[j])
 			j++
 		}
 	}
 	// 如果左边部分剩余，则合并剩余左边部分
 	if i <= mid {
-		tmp = append(tmp, nums[i:mid+1]...)
+		merged = append(merged, nums[i:mid+1]...)
 	}
 	// 如果右边部分剩余，合并剩余右边部分
 	if j <= hi {
-		tmp = append(tmp, nums[j:hi+1]...)
+		merged = append(merged, nums[j:hi+1]...)
 	}
-	// 将 tmp 中的数组拷贝回 nums
-	copy(nums[lo:hi+1], tmp)
+	// 将 merged 中的数组拷贝回 nums
+	copy(nums[lo:hi+1], merged)
 }
