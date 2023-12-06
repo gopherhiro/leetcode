@@ -82,13 +82,13 @@ func findKthSmallest(nums []int, k int) int {
 		// 在 nums[lo..hi] 中选择一个分区点
 		p := partition(nums, lo, hi)
 		if p < k {
-			// 第 k 大元素在 nums[p+1..hi] 中
+			// 第 k 小元素在 nums[p+1..hi] 中
 			lo = p + 1
 		} else if p > k {
-			// 第 k 大元素在 nums[lo..p-1] 中
+			// 第 k 小元素在 nums[lo..p-1] 中
 			hi = p - 1
 		} else {
-			// 找到第 k 大元素
+			// 找到第 k 小元素
 			return nums[p]
 		}
 	}
