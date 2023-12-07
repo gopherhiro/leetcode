@@ -16,6 +16,19 @@ func reverseString(s []byte) {
 	}
 }
 
+func reverseStringN(str string) {
+	if len(str) == 0 {
+		return
+	}
+	s := []byte(str)
+	left, right := 0, len(s)-1
+	for left < right {
+		s[left], s[right] = s[right], s[left]
+		left++
+		right--
+	}
+}
+
 // 反转数组
 // 思路：左右指针
 // time O(N) space O(1)

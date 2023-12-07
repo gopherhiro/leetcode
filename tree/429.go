@@ -15,7 +15,7 @@ func levelOrderNTree(root *Node) (answer [][]int) {
 			cur := queue[0]
 			queue = queue[1:]
 			row = append(row, cur.Val)
-			if cur.Children != nil {
+			if len(cur.Children) > 0 {
 				queue = append(queue, cur.Children...)
 			}
 		}
