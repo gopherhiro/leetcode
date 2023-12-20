@@ -6,6 +6,7 @@ import "math"
 // 155. 最小栈
 // 策略：辅助栈
 // time O(1) space O(N)
+
 type MinStack struct {
 	stack    []int
 	minStack []int

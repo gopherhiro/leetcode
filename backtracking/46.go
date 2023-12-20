@@ -12,7 +12,7 @@ func permute(nums []int) (ans [][]int) {
 		// 结束条件：已选择路径与原始可选列表长度相等时
 		// 即表示得到了一个全排列
 		if len(track) == len(nums) {
-			tmp := make([]int, 0, len(track))
+			tmp := make([]int, len(track))
 			copy(tmp, track)
 			ans = append(ans, tmp)
 			return

@@ -20,16 +20,19 @@ func longestConsecutive(nums []int) int {
 	ans := 0
 	for _, num := range nums {
 		// find min start number to get the longest sequence
+		// num 不是连续子序列的第一个，跳过
 		if m[num-1] {
 			continue
 		}
-		// start
-		count := 1
-		for m[num+1] {
-			count = count + 1
-			num = num + 1
+		// num 是连续子序列的第一个，开始向上计算连续子序列的长度
+		currNum := num
+		currLen := 1
+		for m[currNum+1] {
+			currLen += 1
+			currNum += 1
 		}
-		ans = max(ans, count)
+		// 更新最长连续序列的长度
+		ans = max(ans, currLen)
 	}
 	return ans
 }
@@ -48,11 +51,12 @@ func longestConsecutiveS(nums []int) int {
 	ans, count := 0, 1
 	for i := 1; i < len(nums); i++ {
 		// skip it and go the next number
-		if nums[i] == nums[i-1] {
+		prev, curr := nums[i-1], nums[i]
+		if prev == curr {
 			continue
 		}
 		// prev + 1 == curr, get it
-		if nums[i-1]+1 == nums[i] {
+		if prev+1 == curr {
 			count++
 		} else {
 			ans = max(ans, count)

@@ -13,15 +13,16 @@ func merge(intervals [][]int) [][]int {
 	})
 	merged := make([][]int, 0)
 	for _, interval := range intervals {
-		// If the current interval start after the previous interval end,
-		// then they do not overlap and we can append the current interval to merged.
-		// Otherwise, they do overlap, and we merge them by updating the end of the previous interval
-		// if it is less than the end of the current interval.
-		if len(merged) == 0 || merged[len(merged)-1][1] < interval[0] {
+		if len(merged) == 0 {
 			merged = append(merged, interval)
-		} else {
-			merged[len(merged)-1][1] = max(merged[len(merged)-1][1], interval[1])
+			continue
 		}
+		last := merged[len(merged)-1]
+		if last[1] < interval[0] {
+			merged = append(merged, interval)
+			continue
+		}
+		last[1] = max(last[1], interval[1])
 	}
 	return merged
 }

@@ -11,10 +11,12 @@ func swapPairsR(head *pkg.ListNode) *pkg.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	next := head.Next
-	head.Next = swapPairsR(next.Next) // 链接 next 后面的交换好的节点
-	next.Next = head                  // next 链接 head，完成交换
-	return next                       // next 即是交换好链表的头节点
+	first := head
+	second := head.Next
+	others := head.Next.Next
+	second.Next = first
+	first.Next = swapPairsR(others)
+	return second
 }
 
 // 24. Swap Nodes in Pairs

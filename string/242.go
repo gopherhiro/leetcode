@@ -8,6 +8,22 @@ import (
 // 242. Valid Anagram
 // 242. 有效的字母异位词
 // 思路：sort 两个字符串排序后相等
+// time O(N+M) space O(1)
+func isAnagramN(s string, t string) bool {
+	return countWord(s) == countWord(t)
+}
+
+func countWordN(s string) [26]rune {
+	counter := [26]rune{}
+	for _, v := range s {
+		counter[v-'a']++
+	}
+	return counter
+}
+
+// 242. Valid Anagram
+// 242. 有效的字母异位词
+// 思路：sort 两个字符串排序后相等
 // time O(N) space O(M)
 func isAnagramP(s string, t string) bool {
 	if len(s) != len(t) {

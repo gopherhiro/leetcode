@@ -8,6 +8,42 @@ import (
 // 451. 根据字符出现频率排序
 // 策略：桶排序
 // time O(N) space O(N)
+func frequencySort23(s string) string {
+	// 统计频率
+	ht := make(map[rune]int, 0)
+	for _, v := range s {
+		ht[v]++
+	}
+	// 放入桶中
+	buckets := make([][]rune, len(s)+1)
+	for ch, cnt := range ht {
+		buckets[cnt] = append(buckets[cnt], ch)
+	}
+
+	// 构造频次字符
+	ans := make([]rune, 0, len(s))
+	for i := len(buckets) - 1; i >= 0; i-- {
+		// 空桶，跳过
+		if len(buckets[i]) == 0 {
+			continue
+		}
+		// 使用桶中字符、频次，构造新字符串
+		for j := 0; j < len(buckets[i]); j++ {
+			ch := buckets[i][j]
+			chs := make([]rune, 0, i)
+			for t := 0; t < i; t++ {
+				chs = append(chs, ch)
+			}
+			ans = append(ans, chs...)
+		}
+	}
+	return string(ans)
+}
+
+// 451. Sort Characters By Frequency
+// 451. 根据字符出现频率排序
+// 策略：桶排序
+// time O(N) space O(N)
 func frequencySortN(s string) string {
 	// 统计频率
 	ht := make(map[rune]int, 0)

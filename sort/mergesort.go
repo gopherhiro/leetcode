@@ -12,7 +12,7 @@ func mergeSort(nums []int) []int {
 	var sort func(num []int, lo, hi int)
 	sort = func(nums []int, lo, hi int) {
 		// base case
-		if lo == hi {
+		if lo >= hi {
 			return
 		}
 		mid := lo + (hi-lo)>>1
