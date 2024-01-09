@@ -4,9 +4,14 @@ package stack
 // 思路：单调递增栈
 // time O(n) space O(N)
 func removeKdigits(num string, k int) string {
-
-	if len(num) == k {
+	// number of operation greater than length we return an empty string
+	if len(num) <= k {
 		return "0"
+	}
+
+	// k is 0 , no need of removing / preforming any operation
+	if k == 0 {
+		return num
 	}
 
 	stack := make([]rune, 0, len(num))

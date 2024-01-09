@@ -8,8 +8,8 @@ func findAnagrams(s string, p string) (ans []int) {
 	if len(s) == 0 || len(p) == 0 || len(s) < len(p) {
 		return
 	}
-	need, window := make(map[byte]int, 0), make(map[byte]int, 0)
-
+	need := make(map[byte]int, 0)
+	window := make(map[byte]int, 0)
 	for i := 0; i < len(p); i++ {
 		e := p[i]
 		need[e]++
@@ -19,13 +19,13 @@ func findAnagrams(s string, p string) (ans []int) {
 	for right < len(s) {
 		// 右扩窗口
 		c := s[right]
+		right++
 		if _, ok := need[c]; ok {
 			window[c]++
 			if window[c] == need[c] {
 				valid++
 			}
 		}
-		right++
 
 		// 根据条件，左缩窗口
 		for right-left == len(p) {

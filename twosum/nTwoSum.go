@@ -29,22 +29,20 @@ func nSumTarget(nums []int, n, start, target int) [][]int {
 	if n == 2 {
 		// two Sum
 		return twoSumTarget(nums, start, target)
-	} else {
-		// n > 2 时，递归计算 (n-1)Sum的结果
-		// 穷举 nums[i]，找到合法的组合。
-		for i := start; i < length; i++ {
-			subs := nSumTarget(nums, n-1, i+1, target-nums[i])
-			// (n-1)Sum 加上 nums[i]，即是nSum
-			for _, sub := range subs {
-				sub = append(sub, nums[i])
-				ans = append(ans, sub)
-			}
-			// 去重：如果出现值相等情况，则跳过。
-			for i < length-1 && nums[i] == nums[i+1] {
-				i++
-			}
+	}
+	// n > 2 时，递归计算 (n-1)Sum的结果
+	// 穷举 nums[i]，找到合法的组合。
+	for i := start; i < length; i++ {
+		subs := nSumTarget(nums, n-1, i+1, target-nums[i])
+		// (n-1)Sum 加上 nums[i]，即是nSum
+		for _, sub := range subs {
+			sub = append(sub, nums[i])
+			ans = append(ans, sub)
 		}
-
+		// 去重：如果出现值相等情况，则跳过。
+		for i < length-1 && nums[i] == nums[i+1] {
+			i++
+		}
 	}
 	return ans
 }
