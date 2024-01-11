@@ -11,6 +11,7 @@ func reverseKGroupN(head *ListNode, k int) *ListNode {
 	a, b := head, head
 	for i := 0; i < k; i++ {
 		if b == nil {
+			// 如果不足 k 个也要反转，这里直接 break 即可。
 			return head
 		}
 		b = b.Next
