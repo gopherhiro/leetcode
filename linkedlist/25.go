@@ -16,6 +16,7 @@ func reverseKGroupN(head *ListNode, k int) *ListNode {
 		}
 		b = b.Next
 	}
+	// b 是下一组的头结点
 	newHead := reverse(a, b)
 	a.Next = reverseKGroupN(b, k)
 	return newHead

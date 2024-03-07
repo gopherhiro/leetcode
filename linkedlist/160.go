@@ -76,9 +76,13 @@ func getIntersectionNode(headA, headB *pkg.ListNode) *pkg.ListNode {
 // 160. 相交链表
 // 策略：双指针法
 // time O(M+N) space O(1)
+// 两个指针分别遍历两个链表，当其中一个遍历到链表末尾时，将其重新定位到另一个链表的头部，这样两个指针总共遍历了两个链表的长度之和。
+// 由于两个指针同时移动，它们的相对速度相同，因此在某个时刻，它们要么在交点相遇，要么同时到达链表末尾。
+// 核心思想是在两个链表上同时进行遍历，通过双指针的方式，避免了需要知道链表长度的情况，从而找到链表的交点。
 func getIntersectionNodeT(headA, headB *pkg.ListNode) *pkg.ListNode {
 	pa, pb := headA, headB
 	for pa != pb {
+		// 如果某个指针到达链表末尾，将其重新定位到另一个链表的头节点
 		if pa == nil {
 			pa = headB
 		} else {
@@ -86,6 +90,7 @@ func getIntersectionNodeT(headA, headB *pkg.ListNode) *pkg.ListNode {
 		}
 
 		if pb == nil {
+			// 返回相遇的节点（可能是交点或者两个链表末尾的 nil）
 			pb = headA
 		} else {
 			pb = pb.Next
