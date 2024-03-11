@@ -31,8 +31,8 @@ func reverseListR(head *pkg.ListNode) *pkg.ListNode {
 	}
 	// 递归已经帮你反转了 head 之后的所有节点，并返回反转后的头节点 last
 	// 你需要做的就是把当前节点 head 和反转后的链表链接起来即可。
-	last := reverseListR(head.Next)
+	newHead := reverseListR(head.Next)
 	head.Next.Next = head
 	head.Next = nil
-	return last
+	return newHead
 }

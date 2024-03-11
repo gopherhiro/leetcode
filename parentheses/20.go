@@ -29,10 +29,7 @@ func isValid(s string) bool {
 		}
 	}
 	// 遍历完 s，栈空，括号有效。
-	if len(stack) == 0 {
-		return true
-	}
-	return false
+	return len(stack) == 0
 }
 
 func leftOf(ch byte) byte {
