@@ -7,26 +7,41 @@ func reorderList(head *ListNode) {
 	if head == nil || head.Next == nil || head.Next.Next == nil {
 		return
 	}
-	count := listCount(head)
-	mid := 0
-	if count%2 == 0 {
-		mid = count / 2
-	} else {
-		mid = count/2 + 1
+	/*	count := listCount(head)
+		mid := 0
+		if count%2 == 0 {
+			mid = count / 2
+		} else {
+			mid = count/2 + 1
+		}
+
+		p1 := head
+		for i := 0; i < mid-1; i++ {
+			p1 = p1.Next
+		}
+
+		p2 := p1.Next
+
+		p1.Next = nil*/
+	last := midCut(head)
+
+	relast := reverse(last)
+
+	head = merge(head, relast)
+}
+
+func midCut(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
 	}
-
-	p1 := head
-	for i := 0; i < mid-1; i++ {
-		p1 = p1.Next
+	prev, slow, fast := head, head, head
+	for fast != nil && fast.Next != nil {
+		prev = slow
+		slow = slow.Next
+		fast = fast.Next.Next
 	}
-
-	p2 := p1.Next
-
-	p1.Next = nil
-
-	re := reverse(p2)
-
-	head = merge(head, re)
+	prev.Next = nil
+	return slow
 }
 
 func merge(p1, p2 *ListNode) *ListNode {
