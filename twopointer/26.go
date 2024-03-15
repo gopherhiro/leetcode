@@ -12,7 +12,7 @@ func removeDuplicate(nums []int) int {
 	for fast < len(nums) {
 		if nums[fast] != nums[slow] {
 			// 维护 nums[0..slow] 无重复
-			slow++
+			slow++ // 腾出新的位置
 			nums[slow] = nums[fast]
 		}
 		fast++

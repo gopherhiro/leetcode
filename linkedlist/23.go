@@ -10,6 +10,59 @@ import (
 // 策略：合并两个升序链表
 // 思路：连续合并链表
 // time O(KN)（N 是链表总节点数，K 是链表条数）
+func mergeKListsNew(lists []*ListNode) *ListNode {
+	if len(lists) == 0 {
+		return nil
+	}
+	var buff []*ListNode
+	for _, l := range lists {
+		buff = append(buff, l)
+	}
+
+	for len(buff) > 1 {
+		buff = append(buff, merge(buff[0], buff[1]))
+		buff = buff[2:]
+	}
+
+	return buff[0]
+}
+
+// 21. Merge Two Sorted Lists
+func merge(l1, l2 *ListNode) *ListNode {
+	if l1 == nil {
+		return l2
+	}
+	if l2 == nil {
+		return l1
+	}
+	dummy := &ListNode{} // 虚拟头节点
+	p, p1, p2 := dummy, l1, l2
+	for p1 != nil && p2 != nil {
+		// p 链接到值较小的节点
+		if p1.Val < p2.Val {
+			p.Next = p1
+			p1 = p1.Next
+		} else {
+			p.Next = p2
+			p2 = p2.Next
+		}
+		// 继续后续链接
+		p = p.Next
+	}
+	if p1 != nil {
+		p.Next = p1
+	}
+	if p2 != nil {
+		p.Next = p2
+	}
+	return dummy.Next
+}
+
+// 23. Merge k Sorted Lists
+// 23. 合并K个升序链表
+// 策略：合并两个升序链表
+// 思路：连续合并链表
+// time O(KN)（N 是链表总节点数，K 是链表条数）
 func mergeKListsA(lists []*pkg.ListNode) *pkg.ListNode {
 	k := len(lists)
 	if k == 0 {
