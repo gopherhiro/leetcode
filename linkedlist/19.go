@@ -35,3 +35,35 @@ func kthFromEnd(head *pkg.ListNode, k int) *pkg.ListNode {
 	// slow 现在指向第 n - k 个节点，即倒数第 k 个节点
 	return slow
 }
+
+// 19. Remove Nth ListNode From End of List
+// 19. 删除链表的倒数第 N 个结点
+// 思路：链表长度
+// time O(N) space O(1)
+func removeNthFromEndN(head *ListNode, n int) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	dummy := &ListNode{}
+	dummy.Next = head
+	p := dummy
+
+	m := getLength(head)
+	k := m - n
+	for i := 0; i < k; i++ {
+		p = p.Next
+	}
+	p.Next = p.Next.Next
+
+	return dummy.Next
+}
+
+func getLength(head *ListNode) int {
+	length := 0
+	for head != nil {
+		length++
+		head = head.Next
+	}
+	return length
+}
