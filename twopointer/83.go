@@ -23,3 +23,22 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	slow.Next = nil
 	return head
 }
+
+func deleteDuplicates83(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	dummy := &ListNode{}
+	dummy.Next = head
+
+	slow, fast := head, head
+	for fast != nil {
+		if fast.Val != slow.Val {
+			slow.Next = fast
+			slow = slow.Next
+		}
+		fast = fast.Next
+	}
+	slow.Next = nil
+	return dummy.Next
+}

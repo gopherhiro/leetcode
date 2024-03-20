@@ -1,57 +1,20 @@
 package linkedlist
 
 type LRUCache struct {
-	ht    map[int]*Node
-	cache *DList
-	cap   int
+	// key -> Node(key, val)
+	ht map[int]*Node
+	// Node(k1, v1) <-> Node(k2, v2)...
+	dlist *DList
+	// capacity
+	cap int
 }
 
 func Constructor(capacity int) LRUCache {
 	return LRUCache{
 		ht:    make(map[int]*Node, 0),
-		cache: New(),
+		dlist: New(),
 		cap:   capacity,
 	}
-}
-
-// 抽象API
-// 将某个 key 提升为最近使用的
-func (c *LRUCache) makeRecently(key int) {
-	node := c.ht[key]
-	// 先从链表中删除这个节点
-	c.cache.remove(node)
-	// 重新插到队尾
-	c.cache.addLast(node)
-}
-
-// 添加最近使用的元素
-func (c *LRUCache) addRecently(key, val int) {
-	node := newNode(key, val)
-	// 链表尾部就是最近使用的元素
-	c.cache.addLast(node)
-	// 在 ht 中添加 key 的映射
-	c.ht[key] = node
-}
-
-// 删除某一个 key
-func (c *LRUCache) deleteKey(key int) {
-	node, ok := c.ht[key]
-	if !ok {
-		return
-	}
-	// 从链表中删除
-	c.cache.remove(node)
-	// 从 ht 中删除
-	delete(c.ht, key)
-}
-
-// 删除最久未使用的元素
-func (c *LRUCache) removeLeastRecently() {
-	// 链表头部的第一个元素就是最久未使用的
-	deleteNode := c.cache.removeFirst()
-	// 从 ht 中删除
-	key := deleteNode.key
-	delete(c.ht, key)
 }
 
 func (c *LRUCache) Get(key int) int {
@@ -73,11 +36,51 @@ func (c *LRUCache) Put(key int, val int) {
 		c.addRecently(key, val)
 		return
 	}
-	if c.cap == c.cache.len {
+	if c.cap == c.dlist.length() {
 		// 若容量已满，删除最久未使用的元素
 		c.removeLeastRecently()
 	}
 	c.addRecently(key, val)
+}
+
+// 抽象API
+// 将某个 key 提升为最近使用的
+func (c *LRUCache) makeRecently(key int) {
+	node := c.ht[key]
+	// 先从链表中删除这个节点
+	c.dlist.remove(node)
+	// 重新插到队尾
+	c.dlist.insertAtEnd(node)
+}
+
+// 添加最近使用的元素
+func (c *LRUCache) addRecently(key, val int) {
+	node := newNode(key, val)
+	// 链表尾部就是最近使用的元素
+	c.dlist.insertAtEnd(node)
+	// 在 ht 中添加 key 的映射
+	c.ht[key] = node
+}
+
+// 删除某一个 key
+func (c *LRUCache) deleteKey(key int) {
+	node, ok := c.ht[key]
+	if !ok {
+		return
+	}
+	// 从链表中删除
+	c.dlist.remove(node)
+	// 从 ht 中删除
+	delete(c.ht, key)
+}
+
+// 删除最久未使用的元素
+func (c *LRUCache) removeLeastRecently() {
+	// 链表头部的第一个元素就是最久未使用的
+	deleteNode := c.dlist.removeFirst()
+	// 从 ht 中删除
+	key := deleteNode.key
+	delete(c.ht, key)
 }
 
 // 双向链表的结点
@@ -115,7 +118,7 @@ func New() *DList {
 }
 
 // 在链表尾部添加节点 x，时间 O(1)
-func (d *DList) addLast(x *Node) {
+func (d *DList) insertAtEnd(x *Node) {
 	x.prev = d.tail.prev
 	x.next = d.tail
 	d.tail.prev.next = x
@@ -142,6 +145,6 @@ func (d *DList) removeFirst() *Node {
 }
 
 // 返回链表长度，时间 O(1)
-func (d *DList) Len() int {
+func (d *DList) length() int {
 	return d.len
 }
