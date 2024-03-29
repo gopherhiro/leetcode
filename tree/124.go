@@ -6,6 +6,7 @@ import "math"
 // 定义：给你一个二叉树的根节点 root ，返回其 最大路径和。
 // 路径和 是路径中各节点值的总和。
 // 递归-分解问题：time O(N), space O(N)
+// 参考题解：https://leetcode.cn/problems/binary-tree-maximum-path-sum/solutions/297276/shou-hui-tu-jie-hen-you-ya-de-yi-dao-dfsti-by-hyj8/
 func maxPathSum(root *TreeNode) int {
 	if root == nil {
 		return 0
