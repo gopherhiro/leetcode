@@ -36,11 +36,15 @@ func (c *LRUCache) Put(key int, val int) {
 		c.addRecently(key, val)
 		return
 	}
-	if c.cap == c.dlist.length() {
+	if c.isCapacityFull() {
 		// 若容量已满，删除最久未使用的元素
 		c.removeLeastRecently()
 	}
 	c.addRecently(key, val)
+}
+
+func (c *LRUCache) isCapacityFull() bool {
+	return c.cap == c.dlist.length()
 }
 
 // 抽象API
