@@ -1,16 +1,10 @@
 # Grokking the Coding Interview
 
-## leetcode
-
-英文版：https://leetcode.com/problemset/all/
-
-中文版：https://leetcode.cn/problemset/all/
-
 ## it's me
 
-英文版：https://leetcode.com/gopherhiro/
-
 中文版：https://leetcode.cn/u/gopherhiro/
+
+英文版：https://leetcode.com/gopherhiro/
 
 ## 算法目录
 

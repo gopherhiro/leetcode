@@ -26,7 +26,7 @@ func maxPathSum(root *TreeNode) int {
 		sum := left + root.Val + right
 		result = max(result, sum)
 
-		// 实现函数定义，左右子树的最大路径和加上根节点的值
+		// 左右子树的最大路径和加上根节点的值
 		// 就是从根节点 root 为起点的最大路径和
 		return root.Val + max(left, right)
 	}
