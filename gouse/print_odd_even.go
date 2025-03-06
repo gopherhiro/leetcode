@@ -67,7 +67,7 @@ func printOddEvenMy(n int) {
 			}
 			fmt.Printf("%d ", i)
 			if i >= n {
-				close(even) // 重点：已经打印完毕，后续不再需要这个 chan，所以需要关闭
+				close(even) // 重点（关闭另一个通道）：已经打印完毕，后续不再需要这个 chan，所以需要关闭
 				return
 			}
 			even <- i + 1
@@ -84,7 +84,7 @@ func printOddEvenMy(n int) {
 			}
 			fmt.Printf("%d ", i)
 			if i >= n {
-				close(odd) // 重点：已经打印完毕，后续不再需要这个 chan，所以需要关闭
+				close(odd) // 重点（关闭另一个通道）：已经打印完毕，后续不再需要这个 chan，所以需要关闭
 				return
 			}
 			odd <- i + 1
