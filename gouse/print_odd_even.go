@@ -47,6 +47,8 @@ func printOddEven(n int) {
 	odd <- true
 
 	wg.Wait()
+	close(odd)
+	close(even)
 }
 
 func printOddEvenMy(n int) {
