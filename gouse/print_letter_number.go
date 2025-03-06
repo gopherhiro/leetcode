@@ -1,8 +1,8 @@
-package gouse
+package main
 
 import (
 	"fmt"
-	"sync"
+	"go-master/src/sync"
 )
 
 // 题目描述：给出两个列表：
@@ -50,4 +50,8 @@ func PrintNumberAndLetter() {
 	wg.Wait()
 	fmt.Println()
 	fmt.Println("Print DONE!")
+}
+
+func main() {
+	PrintNumberAndLetter()
 }

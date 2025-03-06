@@ -1,4 +1,4 @@
-package gouse
+package main
 
 import (
 	"fmt"
@@ -40,6 +40,7 @@ func Constructor() MQ {
 }
 
 func (m *MQ) Producer(elem int) {
+	fmt.Println("product elem:", elem)
 	m.ch <- elem
 }
 

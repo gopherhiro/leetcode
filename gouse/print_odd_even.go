@@ -1,4 +1,4 @@
-package gouse
+package main
 
 import (
 	"fmt"
@@ -47,4 +47,53 @@ func printOddEven(n int) {
 	odd <- true
 
 	wg.Wait()
+}
+
+func printOddEvenMy(n int) {
+	var wg sync.WaitGroup
+
+	odd := make(chan int, 1)
+	even := make(chan int, 1)
+
+	odd <- 0
+
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for {
+			i, ok := <-odd
+			if !ok {
+				return
+			}
+			fmt.Printf("%d ", i)
+			if i >= n {
+				close(even) // 重点：已经打印完毕，后续不再需要这个 chan，所以需要关闭
+				return
+			}
+			even <- i + 1
+		}
+	}()
+
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for {
+			i, ok := <-even
+			if !ok {
+				return
+			}
+			fmt.Printf("%d ", i)
+			if i >= n {
+				close(odd) // 重点：已经打印完毕，后续不再需要这个 chan，所以需要关闭
+				return
+			}
+			odd <- i + 1
+		}
+	}()
+
+	wg.Wait()
+}
+
+func main() {
+	printOddEven(3)
 }

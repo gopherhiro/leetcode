@@ -207,3 +207,81 @@ func isMatchR(s string, p string) bool {
 
 	return dp(0, 0)
 }
+
+func quickSort(arr []int) {
+	if len(arr) <= 1 {
+		return
+	}
+	quickSortHelper(arr, 0, len(arr)-1)
+}
+
+func quickSortHelper(arr []int, low, high int) {
+	if low < high {
+		p := partition(arr, low, high)
+		quickSortHelper(arr, low, p-1)
+		quickSortHelper(arr, p+1, high)
+	}
+}
+
+func partition(arr []int, low, high int) int {
+	pivot := arr[high]
+	i := low - 1
+	for j := low; j < high; j++ {
+		if arr[j] < pivot {
+			i++
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+	}
+	arr[i+1], arr[high] = arr[high], arr[i+1]
+	return i + 1
+}
+
+func bubbleSort(arr []int) {
+	n := len(arr)
+	for i := 0; i < n-1; i++ {
+		for j := 0; j < n-i-1; j++ {
+			if arr[j] > arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+			}
+		}
+	}
+}
+
+func heapSort(arr []int) {
+	n := len(arr)
+
+	// 构建最大堆
+	for i := n/2 - 1; i >= 0; i-- {
+		heapify(arr, n, i)
+	}
+
+	// 一个个从堆顶取出元素，并调整堆
+	for i := n - 1; i > 0; i-- {
+		arr[0], arr[i] = arr[i], arr[0] // 交换
+		heapify(arr, i, 0)              // 调整堆
+	}
+}
+
+func heapify(arr []int, n int, i int) {
+	largest := i     // 初始化最大值为根节点
+	left := 2*i + 1  // 左子节点
+	right := 2*i + 2 // 右子节点
+
+	// 如果左子节点大于根节点
+	if left < n && arr[left] > arr[largest] {
+		largest = left
+	}
+
+	// 如果右子节点大于目前最大值
+	if right < n && arr[right] > arr[largest] {
+		largest = right
+	}
+
+	// 如果最大值不是根节点
+	if largest != i {
+		arr[i], arr[largest] = arr[largest], arr[i] // 交换
+
+		// 递归地调整受影响的子树
+		heapify(arr, n, largest)
+	}
+}
