@@ -49,7 +49,7 @@ func (wp *WorkerPool) SubmitTasks(ctx context.Context, list []int) {
 		defer close(wp.jobs)
 		for i, num := range list {
 			select {
-			case wp.jobs <- Task{index: i, value: num}: // 使用小写字段
+			case wp.jobs <- Task{index: i, value: num}:
 			case <-ctx.Done():
 				return
 			}
@@ -69,7 +69,7 @@ func (wp *WorkerPool) ProcessTasks(ctx context.Context) {
 			case <-ctx.Done():
 				return
 			default:
-				wp.results[t.index] = t.value * t.value // 使用小写字段
+				wp.results[t.index] = t.value * t.value
 			}
 		}(task)
 	}
